@@ -41,9 +41,9 @@ function App() {
                 <img className="h-11" src={Logo} alt="KapsAll Logo" />
               </h1>
               <nav className="flex  gap-3 text-sm font-semibold text-gray-400">
-                <TopButton title="Compose" active />
-                <TopButton title="Replies" />
-                <TopButton title="Settings" />
+                <TopButton url="/" title="Compose" active />
+                <TopButton url="/" title="Replies" />
+                <TopButton url="/settings" title="Settings" />
               </nav>
             </div>
           </div>

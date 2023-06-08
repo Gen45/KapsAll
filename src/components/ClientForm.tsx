@@ -6,7 +6,7 @@ export function ClientForm() {
   return (
     <>
       <div className="flex justify-between items-center gap-5 mb-5">
-        <h1 className="text-xl ">Client</h1>
+        <h1 className="text-xl text-slate-600">Client</h1>
         <button type="button" className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600  dark:text-slate-400 dark:hover:text-slate-300"><span className="sr-only">Search</span><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 19-3.5-3.5"></path><circle cx="11" cy="11" r="6"></circle></svg></button>
       </div>
       <div className="form">
