@@ -9,17 +9,8 @@ type Client = {
   name: string;
 };
 
-export function Template1({
-  product,
-  client,
-  information,
-  meetingUrl,
-}: {
-  product: Product;
-  client: Client;
-  information: object;
-  meetingUrl: string;
-}) {
+export function Template1({ product, client, information, meetingUrl, }: { product: Product; client: Client; information: object; meetingUrl: string; }) {
+
   return (
     <div className="py-10 w-[500px] mx-auto text-sm">
       <p>
@@ -48,7 +39,7 @@ export function Template1({
       <p className="my-5">
         <a
           href={meetingUrl}
-          className="px-5 py-3 rounded-xl bg-red-700 text-white font-bold"
+          className="px-5 py-3 rounded-xl bg-persian-red-600 text-white font-bold"
         >
           Click Here To Schedule a Zoom Call to Review Proposal
         </a>

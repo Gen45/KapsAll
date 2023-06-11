@@ -1,90 +1,45 @@
 import { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { TopButton } from "./components/TopButton";
-import { TabButton } from "./components/TabButton";
-import { Template1 } from "./templates/Template1";
-import { ClientForm } from "./components/ClientForm";
+import { Button } from "./components/Button";
 
 import Logo from "./assets/KapsAll-logo.png";
 
 function App() {
-  const [campaigns, setCampaign] = useState([
-    {
-      id: 1,
-      nameId: 1,
-      productId: 1,
-    },
-  ]);
-
-  const information = {
-    sales: {
-      email: "Mike@kapsall.com",
-      phone: "631-727-0300",
-      website: "http://www.KapsAll.com",
-    },
-    northenFacility: {
-      address1: "200 Mill Road",
-      address2: "Riverhead, NY  11901",
-    },
-    southernFacility: {
-      address1: "251 North Congress Ave.",
-      address2: "Delray Beach, FL  33445",
-    },
-  };
+  const [page, setPage] = useState('inbox');
+  const navigate = useNavigate();
 
   return (
     <>
       <div className="flex flex-col grow h-screen w-full dark:bg-gray-900">
         <header className="">
-          <div className="flex py-5 items-center bg-white dark:bg-gray-900">
-            <div className="container px-10 pb-5  flex items-center justify-between mx-auto border-b-[1px] dark:border-gray-700">
+          <div className="flex py-2 items-center bg-white dark:bg-gray-900 border-b-[1px] dark:border-gray-700">
+            <div className="container px-10  flex items-center justify-between mx-auto ">
               <h1 className="text-3xl text-red mr-10">
                 <img className="h-11" src={Logo} alt="KapsAll Logo" />
               </h1>
               <nav className="flex  gap-3 text-sm font-semibold text-gray-400">
-                <TopButton url="/" title="Compose" active />
-                <TopButton url="/" title="Replies" />
-                <TopButton url="/settings" title="Settings" />
+                <TopButton url="/inbox" title="Inbox" active={page == 'inbox'} onClick={() => setPage('inbox')} />
+                <TopButton url="/settings" title="Settings" active={page == 'settings'} onClick={() => setPage('settings')} />
               </nav>
             </div>
           </div>
-          <div className="flex mb-10 py-5 items-center">
-            <div className="container px-10 mx-auto flex">
-              <h2 className="text-3xl font-semibold dark:text-white">
-                Compose
+          <div className="flex bg-gray-100 dark:bg-gray-900 py-5 pb-16 -mb-12 items-center">
+            <div className="container px-10 mx-auto flex justify-between items-center">
+              <h2 className="text-3xl font-semibold dark:text-gray-200">
+                {page[0].toUpperCase() + page.substring(1)}
               </h2>
+              {
+                page == 'inbox' &&
+                <Button onClick={() => { setPage('Compose'); navigate('/new'); }} >New Campaign</Button>
+              }
             </div>
           </div>
         </header>
 
-        <div className="flex flex-col grow bg-slate-100 dark:bg-gray-800">
-          <main className="flex container px-10 mx-auto ">
-            <div className="grow pr-10 pt-10">
-              <ClientForm />
-              <ClientForm />
-            </div>
-            <div className="w-[700px]">
-              <nav className="container px-10 -mt-10 bg-slate-200 rounded-t-md overflow-hidden -mb-[2px] mx-auto flex gap-3 text-sm font-semibold text-gray-500">
-                <span className={`py-2 pt-3  border-b-gray-200 font-light`}>
-                  Template:
-                </span>
-                <TabButton title="Day one" active />
-                <TabButton title="3 days" />
-                <TabButton title="10 days" />
-                <TabButton title="30 days" />
-              </nav>
-              <div className="flex bg-white border-slate border-2 rounded-b-md p-4 z-10 dark:bg-black">
-                <Template1
-                  product={{
-                    name: "Model AU-4 Unscrambler",
-                    code: "AU-4",
-                    model: "Model AU-4 Unscrambler",
-                  }}
-                  meetingUrl="https://something.com/"
-                  client={{ name: "Jeff", id: "1" }}
-                  information={information}
-                />
-              </div>
-            </div>
+        <div className="flex flex-col grow bg-gradient-to-b from-slate-300 to-gray-200 dark:from-gray-800 dark:to-slate-900 mt-12 ">
+          <main className="flex flex-col container px-10 mx-auto -mt-10">
+            <Outlet />
           </main>
         </div>
       </div>
