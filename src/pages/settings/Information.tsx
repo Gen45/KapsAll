@@ -1,7 +1,7 @@
 export function InformationSettings() {
     return (
-        <div>
-            <h1>Information Settings</h1>
+        <div className="flex flex-col grow overflow-auto p-8">
+            <p>Aprende</p>
         </div>
     )
 }

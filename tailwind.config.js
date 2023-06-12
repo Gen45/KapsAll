@@ -2,7 +2,7 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
 const colors = require('tailwindcss/colors')
 
-module.exports = withMT({
+module.exports = {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}'],
@@ -28,5 +28,5 @@ module.exports = withMT({
   plugins: [
     require('@tailwindcss/forms'),
   ],
-})
+}
 

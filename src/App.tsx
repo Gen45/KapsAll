@@ -37,8 +37,8 @@ function App() {
           </div>
         </header>
 
-        <div className="flex flex-col grow bg-gradient-to-b from-slate-300 to-gray-200 dark:from-gray-800 dark:to-slate-900 mt-12 ">
-          <main className="flex flex-col container px-10 mx-auto -mt-10">
+        <div className="flex flex-col grow bg-gradient-to-b from-gray-200 to-gray-200 dark:from-gray-800 dark:to-slate-900 mt-12 ">
+          <main className="flex flex-col container px-10 pb-20 mx-auto -mt-10">
             <Outlet />
           </main>
         </div>

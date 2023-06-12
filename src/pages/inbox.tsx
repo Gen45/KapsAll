@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TabButton } from "../components/TabButton";
 import { Table, TableColumn } from "../components/Table";
+import { Campaigns } from "./Campaigns";
 
 export function Inbox() {
 
@@ -29,8 +30,8 @@ export function Inbox() {
                 <TabButton dark title={TABS.SENT} active={TABS.SENT == tab} onClick={() => setTab(TABS.SENT)} />
                 <TabButton dark title={TABS.REPLIED} active={TABS.REPLIED == tab} onClick={() => setTab(TABS.REPLIED)} />
             </nav>
-            <div className="container  bg-white rounded-b-md overflow-hidden  mx-auto flex text-sm">
-                <Table columns={columns} data={data} />
+            <div className="container  bg-gray-100 rounded-b-md overflow-hidden  mx-auto flex text-sm">
+                <Campaigns />
             </div>
         </div>
     )

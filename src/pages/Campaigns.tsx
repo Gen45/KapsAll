@@ -1,6 +1,17 @@
 import { faker } from "@faker-js/faker";
-import { Avatar } from "../../components/Table/Avatar";
-import { Table1 } from "../../components/Table/Table1";
+import {
+  useTable,
+  useGlobalFilter,
+  useSortBy,
+  usePagination,
+} from "react-table";
+import { useMemo } from "react";
+import TableComponent from "../components/Table/TableComponent";
+import { PaginationNav1 } from "../components/Table/Pagination";
+import { SelectMenu1 } from "../components/Table/SelectMenu1";
+import { Avatar } from "../components/Table/Avatar";
+import { GlobalSearchFilter1 } from "../components/Table/GlobalSearchFilter1";
+import { Table1 } from "../components/Table/Table1";
 
 const generateData = (numberOfRows = 25) =>
   [...Array(numberOfRows)].map(() => ({
@@ -10,7 +21,6 @@ const generateData = (numberOfRows = 25) =>
     accountName: faker.finance.accountName(),
     amount: faker.finance.amount(500, 1e4, 2, "$"),
   }));
-
 const getColumns = () => [
   {
     Header: "Name",
@@ -40,7 +50,8 @@ const getColumns = () => [
 ];
 
 
-function ProductsSettings() {
+
+function Campaigns() {
   return (
     <div className="flex flex-col grow overflow-auto p-8">
       <Table1 generateData={generateData} getColumns={getColumns} />
@@ -48,4 +59,4 @@ function ProductsSettings() {
   );
 }
 
-export { ProductsSettings };
+export { Campaigns };

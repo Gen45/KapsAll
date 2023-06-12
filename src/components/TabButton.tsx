@@ -1,6 +1,6 @@
 export function TabButton({ title, active, dark, onClick }: { title: string; active?: boolean; dark?: boolean; onClick?: () => void; }) {
 
-  let TabButtonStyle: string = "p-6 pt-3 px-4 cursor-pointer font-semibold ";
+  let TabButtonStyle: string = " pt-3 px-4 cursor-pointer font-semibold ";
 
   if (dark) {
     TabButtonStyle += active
