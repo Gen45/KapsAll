@@ -1,0 +1,6 @@
+[13-Jun-2023 04:05:54 UTC] PHP Parse error:  syntax error, unexpected variable "$data" in /home/mwdomain/public_html/kapsall/API/templates.php on line 7
+[13-Jun-2023 04:06:15 UTC] PHP Parse error:  syntax error, unexpected variable "$data" in /home/mwdomain/public_html/kapsall/API/index.php on line 7
+[13-Jun-2023 04:06:28 UTC] PHP Parse error:  syntax error, unexpected variable "$data" in /home/mwdomain/public_html/kapsall/API/index.php on line 7
+[13-Jun-2023 04:07:10 UTC] PHP Parse error:  syntax error, unexpected variable "$data" in /home/mwdomain/public_html/kapsall/API/index.php on line 7
+[13-Jun-2023 04:07:36 UTC] PHP Warning:  Array to string conversion in /home/mwdomain/public_html/kapsall/API/index.php on line 8
+[13-Jun-2023 04:07:54 UTC] PHP Warning:  Array to string conversion in /home/mwdomain/public_html/kapsall/API/index.php on line 8

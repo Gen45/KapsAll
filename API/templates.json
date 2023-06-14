@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Template 1",
+        "description": "This template is used for the first follow up email.",
+        "id": 1
+    },
+    {
+        "name": "Template 2",
+        "description": "This is used for the second follow up email.",
+        "id": 2
+    },
+    {
+        "name": "Template 3",
+        "description": "Used for the third follow up email.",
+        "id": 3
+    }
+]
