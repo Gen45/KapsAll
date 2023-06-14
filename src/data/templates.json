@@ -1,0 +1,47 @@
+[
+    {
+        "templateName": "Template 1",
+        "description": "This is a template",
+        "id": 1
+    },
+    {
+        "templateName": "Template 2",
+        "description": "This is another template",
+        "id": 2
+    },
+    {
+        "templateName": "Template 3",
+        "description": "This is yet! another template",
+        "id": 3
+    },
+    {
+        "templateName": "Template 4",
+        "description": "This is a template",
+        "id": 4
+    },
+    {
+        "templateName": "Template 5",
+        "description": "This is another template",
+        "id": 5
+    },
+    {
+        "templateName": "Template 6",
+        "description": "This is yet! another template",
+        "id": 6
+    },
+    {
+        "templateName": "Template 7",
+        "description": "This is a template",
+        "id": 7
+    },
+    {
+        "templateName": "Template 8",
+        "description": "This is another template",
+        "id": 8
+    },
+    {
+        "templateName": "Template 9",
+        "description": "This is yet! another template",
+        "id": 9
+    }
+]

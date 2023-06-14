@@ -10,6 +10,9 @@ import Settings from './pages/settings.tsx';
 import ErrorPage from './pages/error-page.tsx';
 import { Inbox } from './pages/inbox.tsx';
 import { Preview } from './pages/preview.tsx';
+import { ClientSettings } from './pages/settings/Clients.tsx';
+import { ProductsSettings } from './pages/settings/Products.tsx';
+import { TemplatesSettings } from './pages/settings/Templates.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,14 +21,29 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/inbox",
+        path: "/campaigns",
         element: <Inbox />,
         errorElement: <ErrorPage />
       },
       {
         path: "/settings",
         element: <Settings />,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/settings/clients",
+            element: <ClientSettings />,
+            errorElement: <ErrorPage />
+          }, {
+            path: "/settings/products",
+            element: <ProductsSettings />,
+            errorElement: <ErrorPage />
+          }, {
+            path: "/settings/templates",
+            element: <TemplatesSettings />,
+            errorElement: <ErrorPage />
+          }
+        ]
       },
       {
         path: "/new",

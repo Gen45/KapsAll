@@ -1,49 +1,155 @@
-import { faker } from "@faker-js/faker";
-import { Avatar } from "../../components/Table/Avatar";
+import parse from "html-react-parser";
+import Modali, { useModali } from 'modali';
+import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "../../components/Table/Table1";
-
-const generateData = (numberOfRows = 25) =>
-  [...Array(numberOfRows)].map(() => ({
-    name: faker.name.fullName(),
-    image: faker.image.avatar(),
-    accountNumber: faker.finance.account(8),
-    accountName: faker.finance.accountName(),
-    amount: faker.finance.amount(500, 1e4, 2, "$"),
-  }));
-
-const getColumns = () => [
-  {
-    Header: "Name",
-    accessor: "name",
-    width: "300px",
-    Cell: ({ row, value }) => {
-      return (
-        <div className="flex gap-2 items-center">
-          <Avatar src={row.original.image} alt={`${value}'s Avatar`} />
-          <div>{value}</div>
-        </div>
-      );
-    },
-  },
-  {
-    Header: "Account Number",
-    accessor: "accountNumber",
-  },
-  {
-    Header: "Account Name",
-    accessor: "accountName",
-  },
-  {
-    Header: "Amount",
-    accessor: "amount",
-  },
-];
+import { FaEdit, FaRegEye } from "react-icons/fa";
+import { Button2 } from "../../components/Table/Button2";
 
 
 function ProductsSettings() {
+
+  const MODALTYPES = {
+    PREVIEW: 'preview',
+    EDIT: 'edit',
+  }
+  const BASEURL = 'https://kapsall.com/';
+
+  const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT' });
+
+  const [Modal, toggleModal] = useModali({
+    animated: true,
+    title: modalContent.title,
+    large: true,
+  });
+
+  const [tableData, setTableData] = useState(null);
+
+  const [template, setTemplate] = useState('');
+  const parsedTemplate = parse(template);
+
+  const processProducts = (data: any) => {
+    let products = [] as any;
+    data.forEach((category:any) => {
+      console.log(category);
+           
+      const categoryName = category.categoryName;
+      const categoryUrl = BASEURL + category.url;
+
+      category.items.forEach((item: any) => {
+
+        let product = {} as any;
+
+        product.categoryName = categoryName;
+        product.categoryUrl = categoryUrl;
+        product.name = item.name;
+        product.model = item.model;
+        product.url = BASEURL + item.url;
+        
+        products.push(product);
+      })
+    })
+    return products;
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      // const response = await fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=products');
+      const response = await fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=products-real');
+      const json = await response.json();
+      const data = processProducts(json);
+      // console.log(json);
+      // console.log(data);
+      setTableData(data);
+    } catch (error) {
+      console.log('Error fetching data:', error);
+    }
+  };
+
+
+  const getColumns = () => [
+    {
+      Header: "Name",
+      accessor: "name",
+    },
+    {
+      Header: "Model",
+      accessor: "model",
+    },
+    {
+      Header: "Actions",
+      accessor: "actions",
+      unsortable: true,
+      Cell: ({ row }: { row: any; }) => {
+        return (
+          <div className="flex gap-2 items-center">
+            <Button2 content={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
+            <Button2 content={<FaRegEye size="1rem" />} onClick={() => handleTogglePreviewModal(row.original)} />
+          </div>
+        );
+      },
+    },
+  ];
+
+  const fetchTemplate = async (templateData: any) => {
+    try {
+      const response = await fetch('https://mwxdigital.com/kapsall/kapsall/API/template.php?id=' + templateData.id);
+      const templateHTML = await response.text();
+      setTemplate(templateHTML);
+      setModalContent({ title: templateData.name + ' preview', body: templateData.description, type: MODALTYPES.PREVIEW });
+      toggleModal();
+    } catch (error) {
+      console.log('Error fetching template:', error);
+    }
+  };
+
+  const handleTogglePreviewModal = (templateData: any) => {
+    fetchTemplate(templateData); // fetch template from API
+  }
+
+  const handleToggleEditModal = (templateData: any) => {
+    setModalContent({ title: templateData.name + ' edit', body: templateData.description, type: MODALTYPES.EDIT });
+    toggleModal();
+  }
+
+  const columns = useMemo(getColumns, []);
+
   return (
     <div className="flex flex-col grow overflow-auto p-8">
-      <Table1 generateData={generateData} getColumns={getColumns} />
+      {tableData
+        ?
+        <Table1 data={tableData} columns={columns} />
+        : (
+          <div className="flex justify-center items-center w-full h-full py-36">Loading...</div>
+        )}
+
+      <Modali.Modal {...Modal}>
+        <div className="flex flex-col gap-4 grow p-8">
+          {modalContent.body}
+          {modalContent.type == MODALTYPES.PREVIEW &&
+            <div className="border-2 rounded-lg">
+              {parsedTemplate != ''
+                ?
+                parsedTemplate
+                :
+                <div className="text-red-500 p-8">
+                  <p>No template file found</p>
+                </div>
+              }
+            </div>
+          }
+          {modalContent.type == MODALTYPES.EDIT &&
+            <div className="border-2 rounded-lg">
+              <div className="text-red-500 p-8">
+                <p> UPLOAD TEMPLATE FILE HERE </p>
+              </div>
+            </div>
+          }
+        </div>
+      </Modali.Modal>
     </div>
   );
 }

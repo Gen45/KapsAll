@@ -1,13 +1,24 @@
-import { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TopButton } from "./components/TopButton";
 import { Button } from "./components/Button";
 
 import Logo from "./assets/KapsAll-logo.png";
 
 function App() {
-  const [page, setPage] = useState('inbox');
+  const [page, setPage] = useState('campaigns');
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname.search('campaigns')) {
+      setPage('campaigns');
+    }
+
+    if (location.pathname.search('settings')) {
+      setPage('settings');
+    }
+  }, [])
 
   return (
     <>
@@ -19,24 +30,32 @@ function App() {
                 <img className="h-11" src={Logo} alt="KapsAll Logo" />
               </h1>
               <nav className="flex  gap-3 text-sm font-semibold text-gray-400">
-                <TopButton url="/inbox" title="Inbox" active={page == 'inbox'} onClick={() => setPage('inbox')} />
+                <TopButton url="/campaigns" title="Campaigns" active={page == 'campaigns'} onClick={() => setPage('campaigns')} />
                 <TopButton url="/settings" title="Settings" active={page == 'settings'} onClick={() => setPage('settings')} />
               </nav>
             </div>
           </div>
-          <div className="flex bg-gray-100 dark:bg-gray-900 py-5 pb-16 -mb-12 items-center">
-            <div className="container px-10 mx-auto flex justify-between items-center">
-              <h2 className="text-3xl font-semibold dark:text-gray-200">
-                {page[0].toUpperCase() + page.substring(1)}
-              </h2>
-              {
-                page == 'inbox' &&
-                <Button onClick={() => { setPage('Compose'); navigate('/new'); }} >New Campaign</Button>
-              }
-            </div>
-          </div>
         </header>
 
+        <div className="flex bg-gray-100 dark:bg-gray-900 py-5 pb-16 -mb-12 items-center">
+          <div className="container px-10 mx-auto flex justify-between items-center">
+            <h2 className="text-3xl font-semibold dark:text-gray-200">
+              {page[0].toUpperCase() + page.substring(1)}
+            </h2>
+            {
+              page == 'campaigns' &&
+              <Button onClick={() => { setPage('Compose'); navigate('/new'); }} >New Campaign</Button>
+            }
+            {
+              // page == 'settings' &&
+              // <div>
+              //   <Button className="ml-4" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Client</Button>
+              //   <Button className="ml-4" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Product</Button>
+              //   <Button className="ml-4" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Template </Button>
+              // </div>
+            }
+          </div>
+        </div>
         <div className="flex flex-col grow bg-gradient-to-b from-gray-200 to-gray-200 dark:from-gray-800 dark:to-slate-900 mt-12 ">
           <main className="flex flex-col container px-10 pb-20 mx-auto -mt-10">
             <Outlet />

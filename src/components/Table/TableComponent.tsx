@@ -1,5 +1,3 @@
-
-
 import { FaSortDown, FaSortUp } from "react-icons/fa";
 
 export function TableComponent({
@@ -8,7 +6,7 @@ export function TableComponent({
     getTableBodyProps,
     rows,
     prepareRow,
-}:{ getTableProps: any, headerGroups: any, getTableBodyProps: any, rows: any, prepareRow: any }) {
+}: { getTableProps: any, headerGroups: any, getTableBodyProps: any, rows: any, prepareRow: any }) {
     return (
         <div className="w-full min-w-[30rem] p-4 bg-white rounded-xl shadow-[0_4px_10px_rgba(0,0,0,0.03)]">
             <table {...getTableProps()} className="w-full">
@@ -18,25 +16,28 @@ export function TableComponent({
                             {headerGroup.headers.map((column: any) => (
                                 <th
                                     {...column.getHeaderProps(column.getSortByToggleProps())}
-                                    className="px-3 text-start text-xs font-light uppercase cursor-pointer"
+                                    className={`px-3 text-start text-xs font-light uppercase cursor-pointer ${column.className}`}
                                     style={{ width: column.width }}
                                 >
                                     <div className="flex gap-2 items-center">
                                         <div className="text-gray-600">
                                             {column.render("Header")}
                                         </div>
-                                        <div className="flex flex-col">
-                                            <FaSortUp
-                                                className={`text-sm translate-y-1/2 ${column.isSorted && !column.isSortedDesc
-                                                    ? "text-persian-red-400"
-                                                    : "text-gray-300"
-                                                    }`}
-                                            />
-                                            <FaSortDown
-                                                className={`text-sm -translate-y-1/2 ${column.isSortedDesc ? "text-persian-red-400" : "text-gray-300"
-                                                    }`}
-                                            />
-                                        </div>
+
+                                        {!column.unsortable &&
+                                            <div className="flex flex-col">
+                                                <FaSortUp
+                                                    className={`text-sm translate-y-1/2 ${column.isSorted && !column.isSortedDesc
+                                                        ? "text-persian-red-400"
+                                                        : "text-gray-300"
+                                                        }`}
+                                                />
+                                                <FaSortDown
+                                                    className={`text-sm -translate-y-1/2 ${column.isSortedDesc ? "text-persian-red-400" : "text-gray-300"
+                                                        }`}
+                                                />
+                                            </div>
+                                        }
                                     </div>
                                 </th>
                             ))}
@@ -47,7 +48,7 @@ export function TableComponent({
                     {rows.map((row: any) => {
                         prepareRow(row);
                         return (
-                            <tr {...row.getRowProps()} className="hover:bg-gray-100">
+                            <tr {...row.getRowProps()} className="hover:bg-gray-100" >
                                 {row.cells.map((cell: any) => {
                                     return (
                                         <td
