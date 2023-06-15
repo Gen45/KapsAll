@@ -1,10 +1,9 @@
 import Modali, { useModali } from 'modali';
 import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "../../components/Table/Table1";
-import { FaEdit, FaRegEye } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import { Button2 } from "../../components/Table/Button2";
 import { fetchData } from '../../utils/fetch';
-
 
 function ClientSettings() {
 

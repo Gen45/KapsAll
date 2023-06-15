@@ -12,7 +12,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Perform any necessary data retrieval or processing
     // $data = ['message' => 'Hello, this is your API response!'];
-    $file = "./". $_GET["type"] .".json";
+    $file = "./data/". $_GET["type"] .".json";
     $data =  json_decode(file_get_contents($file), true);
     // echo $data;
     // Set the response headers to indicate JSON content type
