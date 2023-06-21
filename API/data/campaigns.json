@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "C001",
+        "client": 1,
+        "product": 1,
+        "quote": 546456,
+        "status": "active",
+        "start_date": "2019-01-01",
+        "end_date": "2019-12-31",
+        "created_at": "2019-01-01",
+        "updated_at": "2019-01-01",
+        "follow_ups": [
+            {
+                "id": 1,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            },
+            {
+                "id": 2,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "C002",
+        "client": 2,
+        "product": 2,
+        "quote": 34534,
+        "status": "active",
+        "start_date": "2019-01-01",
+        "end_date": "2019-12-31",
+        "created_at": "2019-01-01",
+        "updated_at": "2019-01-01",
+        "follow_ups": [
+            {
+                "id": 1,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            },
+            {
+                "id": 2,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "C003",
+        "client": 3,
+        "product": 3,
+        "quote": 10000,
+        "status": "active",
+        "start_date": "2019-01-01",
+        "end_date": "2019-12-31",
+        "created_at": "2019-01-01",
+        "updated_at": "2019-01-01",
+        "follow_ups": [
+            {
+                "id": 1,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            },
+            {
+                "id": 2,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "C004",
+        "client": 4,
+        "product": 4,
+        "quote": 876876,
+        "status": "active",
+        "start_date": "2019-01-01",
+        "end_date": "2019-12-31",
+        "created_at": "2019-01-01",
+        "updated_at": "2019-01-01",
+        "follow_ups": [
+            {
+                "id": 1,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            },
+            {
+                "id": 2,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "C005",
+        "client": 5,
+        "product": 5,
+        "quote": 456456,
+        "status": "active",
+        "start_date": "2019-01-01",
+        "end_date": "2019-12-31",
+        "created_at": "2019-01-01",
+        "updated_at": "2019-01-01",
+        "follow_ups": [
+            {
+                "id": 1,
+                "campaign": 1,
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            },
+            {
+                "id": 2,
+                "campaign": 1, 
+                "date": "2019-01-01",
+                "notes": "Follow up notes",
+                "created_at": "2019-01-01",
+                "updated_at": "2019-01-01",
+                "status": "active"
+            }
+        ]
+    }
+]

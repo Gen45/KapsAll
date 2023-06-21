@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TabButton } from "../components/TabButton";
+import { TabButton } from "@components/TabButton";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 
 export default function Settings() {
@@ -8,7 +8,6 @@ export default function Settings() {
         CLIENTS: "Clients",
         PRODUCTS: "Products",
         TEMPLATES: 'Templates',
-        INFORMATION: 'Information'
     }
 
     const navigate = useNavigate();
@@ -16,13 +15,9 @@ export default function Settings() {
     const [tab, setTab] = useState('');
 
     useEffect(() => {
-        if (tab == '') {
-            const initialTab = TABS.CLIENTS;
-            setTab(initialTab);
-            navigate(`/settings/${initialTab.toLowerCase()}`);
-        } else {
-            setTab(TABS[location.pathname.replace('/settings/', '').toUpperCase()]);
-        }
+        const locationURL = location.pathname.replace('/settings/', '').toUpperCase()
+        setTab(TABS.hasOwnProperty(locationURL) ? TABS[locationURL] : TABS.CLIENTS);
+        navigate(`/settings/${(TABS.hasOwnProperty(locationURL) ? locationURL : TABS.CLIENTS).toLowerCase()}`);
     }, [])
 
     const handleClick = (tab: string) => {
@@ -35,8 +30,7 @@ export default function Settings() {
             <nav className="container bg-white h-10 rounded-t-md overflow-hidden mx-auto flex text-sm text-white">
                 <TabButton dark title={TABS.CLIENTS} active={TABS.CLIENTS == tab} onClick={() => handleClick(TABS.CLIENTS)} />
                 <TabButton dark title={TABS.PRODUCTS} active={TABS.PRODUCTS == tab} onClick={() => handleClick(TABS.PRODUCTS)} />
-                <TabButton dark title="Templates" active={TABS.TEMPLATES == tab} onClick={() => handleClick(TABS.TEMPLATES)} />
-                {/* <TabButton dark title="Information" active={TABS.INFORMATION == tab} onClick={() => handleClick(TABS.INFORMATION)} /> */}
+                <TabButton dark title={TABS.TEMPLATES} active={TABS.TEMPLATES == tab} onClick={() => handleClick(TABS.TEMPLATES)} />
             </nav>
             <div className="container bg-gray-100 rounded-b-md overflow-hidden  mx-auto flex text-sm">
                 <Outlet />

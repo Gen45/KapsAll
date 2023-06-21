@@ -1,16 +1,14 @@
 import Modali, { useModali } from 'modali';
 import { useEffect, useMemo, useState } from "react";
-import { Table1 } from "../../components/Table/Table1";
+import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
-import { Button2 } from "../../components/Table/Button2";
-import { fetchData } from '../../utils/fetch';
+import { Button2 } from "@components/Table/Button2";
+import { fetchData } from '@utils/fetch';
+import { MODALTYPES } from '@/utils/constants';
 
 function ClientSettings() {
 
-    const MODALTYPES = {
-        PREVIEW: 'preview',
-        EDIT: 'edit',
-    }
+
 
     const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT' });
 
@@ -23,7 +21,7 @@ function ClientSettings() {
     const [tableData, setTableData] = useState<any | null>(null);
 
     useEffect(() => {
-        fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=clients', setTableData);
+        fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=clients', setTableData, null);
     }, []);
 
     const getColumns = () => [
@@ -68,7 +66,7 @@ function ClientSettings() {
             <Modali.Modal {...Modal}>
                 <div className="flex flex-col gap-4 grow p-8">
                     {modalContent.body}
-       
+
                     {modalContent.type == MODALTYPES.EDIT &&
                         <div className="border-2 rounded-lg">
                             <div className="text-red-500 p-8">

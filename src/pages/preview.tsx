@@ -1,6 +1,6 @@
-import { ClientForm } from "../components/ClientForm";
-import { TabButton } from "../components/TabButton";
-import { Template1 } from "../templates/Template1";
+import { ClientForm } from "@components/ClientForm";
+import { TabButton } from "@components/TabButton";
+import { Template1 } from "@templates/Template1";
 
 export function Preview() {
     // interface information {

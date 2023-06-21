@@ -6,17 +6,18 @@ import { Button } from "./components/Button";
 import Logo from "./assets/KapsAll-logo.png";
 
 function App() {
-  const [page, setPage] = useState('campaigns');
   const navigate = useNavigate();
+  const [page, setPage] = useState('campaigns');
+
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.search('campaigns')) {
-      setPage('campaigns');
-    }
-
-    if (location.pathname.search('settings')) {
+    console.log(location.pathname)
+    if (location.pathname.search('settings') === 1) {
       setPage('settings');
+    }
+    if (location.pathname.search('campaigns') === 1) {
+      setPage('campaigns');
     }
   }, [])
 

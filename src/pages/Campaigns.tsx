@@ -1,9 +1,10 @@
 import Modali, { useModali } from 'modali';
 import { useEffect, useMemo, useState } from "react";
-import { Table1 } from "../components/Table/Table1";
+import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
-import { Button2 } from "../components/Table/Button2";
+import { Button2 } from "@components/Table/Button2";
 import { fetchData } from '../utils/fetch';
+import { findById, processCampaigns, processProducts } from '@/utils/processors';
 
 function Campaigns() {
 
@@ -20,20 +21,70 @@ function Campaigns() {
         large: true,
     });
 
-    const [tableData, setTableData] = useState<any | null>(null);
+    const [productsData, setProductData] = useState(Array);
+    const [clientsData, setClientData] = useState(Array);
+    const [tableData, setTableData] = useState(Array);
+    // let _productsData = [];
 
     useEffect(() => {
-        fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=clients', setTableData);
-    }, []);
+
+        const go = async () => {
+            const products = fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=products-real').then(r => r.json());
+            const clients = fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=clients').then(r => r.json());
+            const campaigns = fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=campaigns').then(r => r.json());
+
+            const res = await Promise.all([products, clients, campaigns]);
+
+            // console.log(res)
+            const [productsRes, clientsRes, campaignsRes] = res;
+            // console.log(processProducts(productsRes), clientsRes, processCampaigns(campaignsRes))
+            setProductData(processProducts(productsRes))
+            setClientData(clientsRes)
+            setTableData(processCampaigns(campaignsRes))
+        }
+        go()
+
+    }, [productsData,
+        clientsData,
+        tableData]);
 
     const getColumns = () => [
         {
-            Header: "Client Name",
+            Header: "Campaign Code",
             accessor: "name",
         },
         {
-            Header: "Email",
-            accessor: "email",
+            Header: "Client",
+            accessor: "client",
+            Cell: ({ row }: { row: any; }) => {
+                const clientName = findById(clientsData, row.original.client) !== undefined ? findById(clientsData, row.original.client).name : 'nope'
+                return (
+                    <>
+                        {clientName}
+                    </>
+                );
+            },
+        },
+        {
+            Header: "Product",
+            accessor: "product",
+            Cell: ({ row }: { row: any; }) => {
+                const productName = findById(productsData, row.original.product) !== undefined ? findById(productsData, row.original.product).model : 'nope'
+
+                return (
+                    <>
+                        {productName}
+                    </>
+                );
+            },
+        },
+        {
+            Header: "Quote",
+            accessor: "quote",
+        },
+        {
+            Header: "Status",
+            accessor: "status",
         },
         {
             Header: "Actions",
@@ -54,13 +105,16 @@ function Campaigns() {
         toggleModal();
     }
 
+    // const columns = useMemo(getColumns, []);
     const columns = useMemo(getColumns, []);
+
 
     return (
         <div className="flex flex-col grow overflow-auto p-8">
             {tableData
                 ?
                 <Table1 data={tableData} columns={columns} />
+                // <p>ya va</p>
                 : (
                     <div className="flex justify-center items-center w-full h-full py-36">Loading...</div>
                 )}
@@ -68,7 +122,7 @@ function Campaigns() {
             <Modali.Modal {...Modal}>
                 <div className="flex flex-col gap-4 grow p-8">
                     {modalContent.body}
-       
+
                     {modalContent.type == MODALTYPES.EDIT &&
                         <div className="border-2 rounded-lg">
                             <div className="text-red-500 p-8">

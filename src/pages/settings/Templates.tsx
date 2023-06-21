@@ -1,17 +1,13 @@
 import parse from "html-react-parser";
 import Modali, { useModali } from 'modali';
 import { useEffect, useMemo, useState } from "react";
-import { Table1 } from "../../components/Table/Table1";
+import { Table1 } from "@components/Table/Table1";
 import { FaEdit, FaRegEye } from "react-icons/fa";
-import { Button2 } from "../../components/Table/Button2";
-
+import { Button2 } from "@components/Table/Button2";
+import { fetchData } from "@/utils/fetch";
+import { MODALTYPES } from "@/utils/constants";
 
 function TemplatesSettings() {
-
-    const MODALTYPES = {
-        PREVIEW: 'preview',
-        EDIT: 'edit',
-    }
 
     const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT' });
 
@@ -21,30 +17,14 @@ function TemplatesSettings() {
         large: true,
     });
 
-
     const [tableData, setTableData] = useState(null);
 
     const [template, setTemplate] = useState('');
     const parsedTemplate = parse(template);
 
-
-    // const { isShowing, toggle } = useModal();
-
     useEffect(() => {
-        fetchData();
+        fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=templates',setTableData, null );
     }, []);
-
-    const fetchData = async () => {
-        try {
-            // const response = await fetch('https://mwxdigital.com/kapsall/kapsall/API/templates.php');
-            const response = await fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=templates');
-            const json = await response.json();
-            setTableData(json);
-        } catch (error) {
-            console.log('Error fetching data:', error);
-        }
-    };
-
 
     const getColumns = () => [
         {

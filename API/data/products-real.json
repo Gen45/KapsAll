@@ -1,352 +1,420 @@
 [
 	{
-		"categoryName": "Bottle Unscramblers",
+		"name": "Bottle Unscramblers",
 		"url": "/solutions/bottle-unscramblers",
+		"id": 1,
 		"items": [
 			{
 				"url": "/solutions/bottle-unscramblers/au-4-compact-unscrambler",
 				"name": "AU-4 Compact Unscrambler",
-				"model": "AU-4"
+				"model": "AU-4",
+				"id": 1
 			},
 			{
 				"url": "/solutions/bottle-cleaners/au-3c-unscramblercleaner",
 				"name": "AU-3C Unscrambler/Cleaner",
-				"model": "AU-3C"
+				"model": "AU-3C",
+				"id": 2
 			},
 			{
 				"url": "/solutions/bottle-cleaners/au-6c-unscramblercleaner",
 				"name": "AU-6C Unscrambler/Cleaner",
-				"model": "AU-6C"
+				"model": "AU-6C",
+				"id": 3
 			},
 			{
 				"url": "/solutions/bottle-unscramblers/fs-u-unscrambling-table",
 				"name": "FS-U Unscrambling Table",
-				"model": "FS-U"
+				"model": "FS-U",
+				"id": 4
 			},
 			{
 				"url": "/solutions/bottle-unscramblers/au-6-unscrambler",
 				"name": "AU-6-E Unscrambler",
-				"model": "AU-6-E"
+				"model": "AU-6-E",
+				"id": 5
 			}
 		]
 	},
 	{
-		"categoryName": "Bottle Cleaners",
+		"name": "Bottle Cleaners",
 		"url": "/solutions/bottle-cleaners",
+		"id": 2,
 		"items": [
 			{
 				"url": "/solutions/bottle-cleaners/ac-65-full-size-cleaner",
 				"name": "AC-65 Full Size Cleaner",
-				"model": "AC-65"
+				"model": "AC-65",
+				"id": 6
 			},
 			{
 				"url": "/solutions/bottle-cleaners/ac-35-compact-cleaner",
 				"name": "AC-35 Compact Cleaner",
-				"model": "AC-35"
+				"model": "AC-35",
+				"id": 7
 			},
 			{
 				"url": "/solutions/bottle-cleaners/au-3c-unscramblercleaner",
 				"name": "AU-3C Unscrambler/Cleaner",
-				"model": "AU-3C"
+				"model": "AU-3C",
+				"id": 8
 			},
 			{
 				"url": "/solutions/bottle-cleaners/au-6c-unscramblercleaner",
 				"name": "AU-6C Unscrambler/Cleaner",
-				"model": "AU-6C"
+				"model": "AU-6C",
+				"id": 9
 			}
 		]
 	},
 	{
-		"categoryName": "Liquid Fillers",
+		"name": "Liquid Fillers",
 		"url": "/solutions/liquid-fillers",
+		"id": 3,
 		"items": [
 			{
 				"url": "/solutions/liquid-fillers/fa-p-pressure-filler",
 				"name": "FA-P-E Pressure Filler",
-				"model": "FA-P-E"
+				"model": "FA-P-E",
+				"id": 10
 			},
 			{
 				"url": "/solutions/liquid-fillers/fa-g-gravity-filler",
 				"name": "FA-G-E Gravity Filler",
-				"model": "FA-G-E"
+				"model": "FA-G-E",
+				"id": 11
 			},
 			{
 				"url": "/solutions/liquid-fillers/fa-pg-pressure-gravity-filler",
 				"name": "FA-PG-E Pressure Gravity Filler",
-				"model": "FA-PG-E"
+				"model": "FA-PG-E",
+				"id": 12
 			},
 			{
 				"url": "/solutions/liquid-fillers/v-8-e-volumetric-piston-filler",
 				"name": "V-8-E Volumetric Piston Filler",
-				"model": "V-8-E"
+				"model": "V-8-E",
+				"id": 13
 			},
 			{
 				"url": "/solutions/liquid-fillers/vol-a-compact-piston-filler",
 				"name": "VOL-A Compact Piston Filler",
-				"model": "VOL-A"
+				"model": "VOL-A",
+				"id": 14
 			},
 			{
 				"url": "/solutions/liquid-fillers/vol-b-semi-automatic-volumetric-bench-top-filler",
 				"name": "VOL-B Semi Automatic Volumetric Bench Top Filler",
-				"model": "VOL-B"
+				"model": "VOL-B",
+				"id": 15
 			},
 			{
 				"url": "/solutions/liquid-fillers/bench-top-gear-pump-filler",
 				"name": "FA-GB Bench Top Gear Pump Filler",
-				"model": "FA-GB"
+				"model": "FA-GB",
+				"id": 16
 			},
 			{
 				"url": "/solutions/liquid-fillers/fa-r-rotary-high-speed-pressure-filler",
 				"name": "FA-R Rotary High Speed Pressure Filler",
-				"model": "FA-R"
+				"model": "FA-R",
+				"id": 17
 			},
 			{
 				"url": "/solutions/liquid-fillers/ecf-g-electronically-controlled-timed-volumetric-filler",
 				"name": "ECF-G Electronically Controlled, Timed Volumetric Filler",
-				"model": "ECF-G"
+				"model": "ECF-G",
+				"id": 18
 			},
 			{
 				"url": "/solutions/liquid-fillers/fa-ga-gear-pump-filler",
 				"name": "FA-GA Gear Pump Filler",
-				"model": "FA-GA"
+				"model": "FA-GA",
+				"id": 19
 			},
 			{
 				"url": "/solutions/liquid-fillers/v-16-es-high-speed-volumetric-piston-filler",
 				"name": "V-16-ES High Speed Volumetric Piston Filler",
-				"model": "V-16-ES"
+				"model": "V-16-ES",
+				"id": 20
 			}
 		]
 	},
 	{
-		"categoryName": "Cappers",
+		"name": "Cappers",
 		"url": "/solutions/cappers",
+		"id": 4,
 		"items": [
 			{
 				"url": "/solutions/cappers/e4-portable-4-spindle-capper",
 				"name": "E4 Portable 4 Spindle Capper",
-				"model": "E4"
+				"model": "E4",
+				"id": 21
 			},
 			{
 				"url": "/solutions/cappers/a6-6-spindle-auto-capper",
 				"name": "A6 6 Spindle Auto. Capper",
-				"model": "A6"
+				"model": "A6",
+				"id": 22
 			},
 			{
 				"url": "/solutions/cappers/c8-portable-8-spindle-capper",
 				"name": "C8 Portable 8 Spindle Capper",
-				"model": "C8"
+				"model": "C8",
+				"id": 23
 			},
 			{
 				"url": "/solutions/cappers/fe4-portable-4-spindle-cap-tightener",
 				"name": "FE4 Portable 4 Spindle Cap Tightener",
-				"model": "FE4"
+				"model": "FE4",
+				"id": 24
 			},
 			{
 				"url": "/solutions/cappers/fa6-portable-6-spindle-cap-tightener",
 				"name": "FA6 Portable 6 Spindle Cap Tightener",
-				"model": "FA6"
+				"model": "FA6",
+				"id": 25
 			},
 			{
 				"url": "/solutions/cappers/fc8-portable-8-spindle-cap-tightener",
 				"name": "FC8 Portable 8 Spindle Cap Tightener",
-				"model": "FC8"
+				"model": "FC8",
+				"id": 26
 			},
 			{
 				"url": "/solutions/cappers/be4-overcapper-lidder",
 				"name": "BE4 Overcapper / Lidder",
-				"model": "BE4"
+				"model": "BE4",
+				"id": 27
 			},
 			{
 				"url": "/solutions/cappers/ba6-overcapper-lidder",
 				"name": "BA6 Overcapper / Lidder",
-				"model": "BA6"
+				"model": "BA6",
+				"id": 28
 			},
 			{
 				"url": "/solutions/cappers/bc8-overcapper-lidder",
 				"name": "BC8 Overcapper / Lidder",
-				"model": "BC8"
+				"model": "BC8",
+				"id": 29
 			},
 			{
 				"url": "/solutions/cappers/ge4-portable-combo-capper-lidder",
 				"name": "GE4 Portable Combination Capper / Over Capper / Lidder",
-				"model": "GE4"
+				"model": "GE4",
+				"id": 30
 			},
 			{
 				"url": "/solutions/cappers/ga6-portable-combination-capper-over-capper-lidder",
 				"name": "GA6 Portable Combination Capper / Over Capper / Lidder",
-				"model": "GA6"
+				"model": "GA6",
+				"id": 31
 			},
 			{
 				"url": "/solutions/cappers/gc8-portable-combination-capper-over-capper-lidder",
 				"name": "GC8 Portable Combination Capper / Over Capper / Lidder",
-				"model": "GC8"
+				"model": "GC8",
+				"id": 32
 			},
 			{
 				"url": "/solutions/cappers/bp-portable-automatic-ball-placer-inserter",
 				"name": "BP - Portable Automatic Ball Placer / Inserter",
-				"model": "BP"
+				"model": "BP",
+				"id": 33
 			},
 			{
 				"url": "/solutions/cappers/p-700-hand-capper",
 				"name": "P-700 Hand Capper",
-				"model": "P-700"
+				"model": "P-700",
+				"id": 34
 			},
 			{
 				"url": "/solutions/cappers/bk-4-belt-capper",
 				"name": "BK-4 Belt Capper",
-				"model": "BK-4"
+				"model": "BK-4",
+				"id": 35
 			}
 		]
 	},
 	{
-		"categoryName": "Labelers",
+		"name": "Labelers",
 		"url": "/solutions/labelers",
+		"id": 5,
 		"items": [
 			{
 				"url": "/solutions/labelers/lw-40",
 				"name": "LW-40 Wrap Labeler",
-				"model": "LW-40"
+				"model": "LW-40",
+				"id": 36
 			},
 			{
 				"url": "/solutions/labelers/lc-40-wrap-frontback",
 				"name": "LC-40 Wrap &amp; Front/Back",
-				"model": "LC-40"
+				"model": "LC-40",
+				"id": 37
 			},
 			{
 				"url": "/solutions/labelers/lw-80-high-speed-wrap-labeler",
 				"name": "LW-80 High Speed Wrap Labeler",
-				"model": "LW-80"
+				"model": "LW-80",
+				"id": 38
 			},
 			{
 				"url": "/solutions/labelers/lc-80-combination-wrap-and-frontback-labeler",
 				"name": "LC-80 Combination Wrap and Front/Back Labeler",
-				"model": "LC-80"
+				"model": "LC-80",
+				"id": 39
 			},
 			{
 				"url": "/solutions/labelers/lf-40-combination-wrap-panel-labeler",
 				"name": "LF-40 Combination Wrap / Panel Labeler.",
-				"model": "LF-40"
+				"model": "LF-40",
+				"id": 40
 			},
 			{
 				"url": "/solutions/labelers/lf-80-high-speed-combination-wrap-panel-labeler",
 				"name": "LF-80 High Speed Combination Wrap / Panel Labeler",
-				"model": "LF-80"
+				"model": "LF-80",
+				"id": 41
 			}
 		]
 	},
 	{
-		"categoryName": "Induction Sealers",
+		"name": "Induction Sealers",
 		"url": "/solutions/induction-sealers",
+		"id": 6,
 		"items": [
 			{
 				"url": "/solutions/induction-sealers/am-100-benchtop-sealer",
 				"name": "AM-100 Benchtop Induction Sealer",
-				"model": "AM-100"
+				"model": "AM-100",
+				"id": 42
 			},
 			{
 				"url": "/solutions/induction-sealers/am-250-automatic-sealer",
 				"name": "AM-250 Automatic Induction Sealer",
-				"model": "AM-250"
+				"model": "AM-250",
+				"id": 43
 			},
 			{
 				"url": "/solutions/induction-sealers/am-500-high-speed-sealer",
 				"name": "AM-500 High Speed Induction Sealer",
-				"model": "AM-500"
+				"model": "AM-500",
+				"id": 44
 			}
 		]
 	},
 	{
-		"categoryName": "Conveyors",
+		"name": "Conveyors",
 		"url": "/solutions/conveyors",
+		"id": 7,
 		"items": [
 			{
 				"url": "/solutions/conveyors/conveyor",
 				"name": "Conveyor",
-				"model": "Conveyor"
+				"model": "Conveyor",
+				"id": 45
 			},
 			{
 				"url": "/solutions/conveyors/bc-1623-bottle-carrier",
 				"name": "BC-16(23) Bottle Carrier",
-				"model": "BC-16(23)"
+				"model": "BC-16(23)",
+				"id": 46
 			}
 		]
 	},
 	{
-		"categoryName": "Quality Control",
+		"name": "Quality Control",
 		"url": "/solutions/quality-control",
+		"id": 8,
 		"items": [
 			{
 				"url": "/solutions/quality-control/am-csm-cap-seal-meter",
 				"name": "AM-CSM Cap Seal Meter",
-				"model": "AM-CSM"
+				"model": "AM-CSM",
+				"id": 47
 			},
 			{
 				"url": "/solutions/quality-control/am-da-quality-control-center",
 				"name": "AM-DA Quality Control Center",
-				"model": "AM-DA"
+				"model": "AM-DA",
+				"id": 48
 			}
 		]
 	},
 	{
-		"categoryName": "Rotary Tables",
+		"name": "Rotary Tables",
 		"url": "/solutions/rotary-tables",
+		"id": 9,
 		"items": [
 			{
 				"url": "/solutions/bottle-unscramblers/fs-u-unscrambling-table",
 				"name": "FS-U Unscrambling Table",
-				"model": "FS-U"
+				"model": "FS-U",
+				"id": 49
 			},
 			{
 				"url": "/solutions/rotary-tables/fs-a-accumulation-table",
 				"name": "FS-A Accumulation Table",
-				"model": "FS-A"
+				"model": "FS-A",
+				"id": 50
 			},
 			{
 				"url": "/solutions/rotary-tables/fs-s-rotary-surge-table",
 				"name": "FS-S Rotary Surge Table",
-				"model": "FS-S"
+				"model": "FS-S",
+				"id": 51
 			}
 		]
 	},
 	{
-		"categoryName": "Torque Meters",
+		"name": "Torque Meters",
 		"url": "/solutions/torque-meters",
+		"id": 10,
 		"items": [
 			{
 				"url": "/solutions/torque-meters/eb-650-bench-torque-meter",
 				"name": "EB-650 Bench Torque Meter",
-				"model": "EB-650"
+				"model": "EB-650",
+				"id": 52
 			},
 			{
 				"url": "/solutions/torque-meters/em-980-torque-monitor",
 				"name": "EM-980 Torque Monitor",
-				"model": "EM-980"
+				"model": "EM-980",
+				"id": 53
 			}
 		]
 	},
 	{
-		"categoryName": "Rotary Feeders / Elevators / Hoppers",
+		"name": "Rotary Feeders / Elevators / Hoppers",
 		"url": "/solutions/rotary-feeders-elevators-hoppers",
+		"id": 11,
 		"items": [
 			{
 				"url": "/solutions/rotary-feeders-elevators-hoppers/fs-b-bulk-parts-elevator",
 				"name": "FS-B Bulk Parts Elevator",
-				"model": "FS-B"
+				"model": "FS-B",
+				"id": 54
 			},
 			{
 				"url": "/solutions/rotary-feeders-elevators-hoppers/mini-l-compact-parts-elevator",
 				"name": "MINI-L Compact Parts Elevator",
-				"model": "MINI-L"
+				"model": "MINI-L",
+				"id": 55
 			},
 			{
 				"url": "/solutions/rotary-feeders-elevators-hoppers/fsrf-24-parts-and-cap-feeder",
 				"name": "FSRF-24 Parts and Cap Feeder",
-				"model": "FSRF-24"
+				"model": "FSRF-24",
+				"id": 56
 			},
 			{
 				"url": "/solutions/rotary-feeders-elevators-hoppers/fsrf-36-parts-and-cap-feeder",
 				"name": "FSRF-36 Parts and Cap Feeder",
-				"model": "FSRF-36"
+				"model": "FSRF-36",
+				"id": 57
 			}
 		]
 	}

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import App from './App.tsx'
 import './index.css'
-import Settings from './pages/settings.tsx';
+import Settings from './pages/Settings.tsx';
 import ErrorPage from './pages/error-page.tsx';
 import { Inbox } from './pages/inbox.tsx';
 import { Preview } from './pages/preview.tsx';
