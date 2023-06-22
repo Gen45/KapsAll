@@ -14,6 +14,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
+*.ftp-sync.json
 .vscode/*
 !.vscode/extensions.json
 .idea
