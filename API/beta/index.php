@@ -5,6 +5,7 @@ declare(strict_types=1);
 spl_autoload_register(function ($class) {
     require __DIR__ . "/src/$class.php";
 });
+(new DotEnv(__DIR__ . '/.env'))->load();
 
 set_error_handler("ErrorHandler::handleError");
 set_exception_handler("ErrorHandler::handleException");
@@ -23,10 +24,10 @@ $parts = explode("/", $_SERVER['REQUEST_URI']);
 
 $id = $parts[5] ?? NULL;
 
-$servername = "localhost";
-$dbname = "kapsalldb";
-$username = "mwxadm";
-$password = "tH9!k~}8CCc0";
+$servername = $_ENV['SERVERNAME'];
+$dbname = $_ENV['DBNAME'];
+$username = $_ENV['USERNAME'];
+$password = $_ENV['PASSWORD'];
 
 $database = new Database($servername, $dbname, $username, $password);
 
