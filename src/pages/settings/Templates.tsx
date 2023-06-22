@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
 import { FaEdit, FaRegEye } from "react-icons/fa";
 import { Button2 } from "@components/Table/Button2";
-import { fetchData } from "@/utils/fetch";
-import { MODALTYPES } from "@/utils/constants";
+// import { fetchData } from "@/utils/fetch";
+import { API_URL, MODALTYPES } from "@/utils/constants";
 
 function TemplatesSettings() {
 
@@ -23,7 +23,14 @@ function TemplatesSettings() {
     const parsedTemplate = parse(template);
 
     useEffect(() => {
-        fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=templates',setTableData, null );
+        const go = async () => {
+            const templates = fetch(`${API_URL}templates`).then(r => r.json());
+            const res = await Promise.all([templates]);
+            const [templatesRes] = res;
+            setTableData(templatesRes);
+            // console.log(templatesRes);
+        }
+        go()
     }, []);
 
     const getColumns = () => [
@@ -52,7 +59,7 @@ function TemplatesSettings() {
 
     const fetchTemplate = async (templateData: any) => {
         try {
-            const response = await fetch('https://mwxdigital.com/kapsall/kapsall/API/template.php?id=' + templateData.id);
+            const response = await fetch(`${API_URL}template/${templateData.file}`);
             const templateHTML = await response.text();
             setTemplate(templateHTML);
             setModalContent({ title: templateData.name + ' preview', body: templateData.description, type: MODALTYPES.PREVIEW });
@@ -63,7 +70,11 @@ function TemplatesSettings() {
     };
 
     const handleTogglePreviewModal = (templateData: any) => {
-        fetchTemplate(templateData); // fetch template from API
+        if(templateData.file !== ''){
+            fetchTemplate(templateData); // fetch template from API
+        } else {
+            handleToggleEditModal(templateData); // if no template file, open edit modal instead
+        }
     }
 
     const handleToggleEditModal = (templateData: any) => {
@@ -100,7 +111,11 @@ function TemplatesSettings() {
                     {modalContent.type == MODALTYPES.EDIT &&
                         <div className="border-2 rounded-lg">
                             <div className="text-red-500 p-8">
-                                <p> UPLOAD TEMPLATE FILE HERE </p>
+                                <label className="text-sm font-medium text-gray-900 block mb-2" htmlFor="user_avatar">Upload template file</label>
+                                <input className="block w-full p-4 cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-sm" aria-describedby="user_avatar_help" id="user_avatar" type="file" />
+                                <div className="mt-1 text-sm text-gray-500" id="user_avatar_help">
+                                    Upload an html file with the template code
+                                </div>
                             </div>
                         </div>
                     }

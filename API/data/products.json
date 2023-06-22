@@ -1,32 +1,458 @@
 [
     {
-        "name": "Product 1",
-        "model": "model 1",
-        "id": 1
+        "id": 1,
+        "name": "AU-4 Compact Unscrambler",
+        "model": "AU-4",
+        "category": 1,
+        "url": "https://kapsall.com//solutions/bottle-unscramblers/au-4-compact-unscrambler",
+        "is_available": true
     },
     {
-        "name": "Product 2",
-        "model": "model 2",
-        "id": 2
+        "id": 2,
+        "name": "AU-3C Unscrambler/Cleaner",
+        "model": "AU-3C",
+        "category": 1,
+        "url": "https://kapsall.com//solutions/bottle-cleaners/au-3c-unscramblercleaner",
+        "is_available": true
     },
     {
-        "name": "Product 3",
-        "model": "model 3",
-        "id": 3
+        "id": 3,
+        "name": "AU-6C Unscrambler/Cleaner",
+        "model": "AU-6C",
+        "category": 1,
+        "url": "https://kapsall.com//solutions/bottle-cleaners/au-6c-unscramblercleaner",
+        "is_available": true
     },
     {
-        "name": "Product 4",
-        "model": "model 4",
-        "id": 4
+        "id": 4,
+        "name": "FS-U Unscrambling Table",
+        "model": "FS-U",
+        "category": 1,
+        "url": "https://kapsall.com//solutions/bottle-unscramblers/fs-u-unscrambling-table",
+        "is_available": true
     },
     {
-        "name": "Product 5",
-        "model": "model 5",
-        "id": 5
+        "id": 5,
+        "name": "AU-6-E Unscrambler",
+        "model": "AU-6-E",
+        "category": 1,
+        "url": "https://kapsall.com//solutions/bottle-unscramblers/au-6-unscrambler",
+        "is_available": true
     },
     {
-        "name": "Product 6",
-        "model": "model 6",
-        "id": 6
+        "id": 6,
+        "name": "AC-65 Full Size Cleaner",
+        "model": "AC-65",
+        "category": 2,
+        "url": "https://kapsall.com//solutions/bottle-cleaners/ac-65-full-size-cleaner",
+        "is_available": true
+    },
+    {
+        "id": 7,
+        "name": "AC-35 Compact Cleaner",
+        "model": "AC-35",
+        "category": 2,
+        "url": "https://kapsall.com//solutions/bottle-cleaners/ac-35-compact-cleaner",
+        "is_available": true
+    },
+    {
+        "id": 8,
+        "name": "AU-3C Unscrambler/Cleaner",
+        "model": "AU-3C",
+        "category": 2,
+        "url": "https://kapsall.com//solutions/bottle-cleaners/au-3c-unscramblercleaner",
+        "is_available": true
+    },
+    {
+        "id": 9,
+        "name": "AU-6C Unscrambler/Cleaner",
+        "model": "AU-6C",
+        "category": 2,
+        "url": "https://kapsall.com//solutions/bottle-cleaners/au-6c-unscramblercleaner",
+        "is_available": true
+    },
+    {
+        "id": 10,
+        "name": "FA-P-E Pressure Filler",
+        "model": "FA-P-E",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/fa-p-pressure-filler",
+        "is_available": true
+    },
+    {
+        "id": 11,
+        "name": "FA-G-E Gravity Filler",
+        "model": "FA-G-E",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/fa-g-gravity-filler",
+        "is_available": true
+    },
+    {
+        "id": 12,
+        "name": "FA-PG-E Pressure Gravity Filler",
+        "model": "FA-PG-E",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/fa-pg-pressure-gravity-filler",
+        "is_available": true
+    },
+    {
+        "id": 13,
+        "name": "V-8-E Volumetric Piston Filler",
+        "model": "V-8-E",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/v-8-e-volumetric-piston-filler",
+        "is_available": true
+    },
+    {
+        "id": 14,
+        "name": "VOL-A Compact Piston Filler",
+        "model": "VOL-A",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/vol-a-compact-piston-filler",
+        "is_available": true
+    },
+    {
+        "id": 15,
+        "name": "VOL-B Semi Automatic Volumetric Bench Top Filler",
+        "model": "VOL-B",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/vol-b-semi-automatic-volumetric-bench-top-filler",
+        "is_available": true
+    },
+    {
+        "id": 16,
+        "name": "FA-GB Bench Top Gear Pump Filler",
+        "model": "FA-GB",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/bench-top-gear-pump-filler",
+        "is_available": true
+    },
+    {
+        "id": 17,
+        "name": "FA-R Rotary High Speed Pressure Filler",
+        "model": "FA-R",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/fa-r-rotary-high-speed-pressure-filler",
+        "is_available": true
+    },
+    {
+        "id": 18,
+        "name": "ECF-G Electronically Controlled, Timed Volumetric Filler",
+        "model": "ECF-G",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/ecf-g-electronically-controlled-timed-volumetric-filler",
+        "is_available": true
+    },
+    {
+        "id": 19,
+        "name": "FA-GA Gear Pump Filler",
+        "model": "FA-GA",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/fa-ga-gear-pump-filler",
+        "is_available": true
+    },
+    {
+        "id": 20,
+        "name": "V-16-ES High Speed Volumetric Piston Filler",
+        "model": "V-16-ES",
+        "category": 3,
+        "url": "https://kapsall.com//solutions/liquid-fillers/v-16-es-high-speed-volumetric-piston-filler",
+        "is_available": true
+    },
+    {
+        "id": 21,
+        "name": "E4 Portable 4 Spindle Capper",
+        "model": "E4",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/e4-portable-4-spindle-capper",
+        "is_available": true
+    },
+    {
+        "id": 22,
+        "name": "A6 6 Spindle Auto. Capper",
+        "model": "A6",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/a6-6-spindle-auto-capper",
+        "is_available": true
+    },
+    {
+        "id": 23,
+        "name": "C8 Portable 8 Spindle Capper",
+        "model": "C8",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/c8-portable-8-spindle-capper",
+        "is_available": true
+    },
+    {
+        "id": 24,
+        "name": "FE4 Portable 4 Spindle Cap Tightener",
+        "model": "FE4",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/fe4-portable-4-spindle-cap-tightener",
+        "is_available": true
+    },
+    {
+        "id": 25,
+        "name": "FA6 Portable 6 Spindle Cap Tightener",
+        "model": "FA6",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/fa6-portable-6-spindle-cap-tightener",
+        "is_available": true
+    },
+    {
+        "id": 26,
+        "name": "FC8 Portable 8 Spindle Cap Tightener",
+        "model": "FC8",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/fc8-portable-8-spindle-cap-tightener",
+        "is_available": true
+    },
+    {
+        "id": 27,
+        "name": "BE4 Overcapper / Lidder",
+        "model": "BE4",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/be4-overcapper-lidder",
+        "is_available": true
+    },
+    {
+        "id": 28,
+        "name": "BA6 Overcapper / Lidder",
+        "model": "BA6",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/ba6-overcapper-lidder",
+        "is_available": true
+    },
+    {
+        "id": 29,
+        "name": "BC8 Overcapper / Lidder",
+        "model": "BC8",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/bc8-overcapper-lidder",
+        "is_available": true
+    },
+    {
+        "id": 30,
+        "name": "GE4 Portable Combination Capper / Over Capper / Lidder",
+        "model": "GE4",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/ge4-portable-combo-capper-lidder",
+        "is_available": true
+    },
+    {
+        "id": 31,
+        "name": "GA6 Portable Combination Capper / Over Capper / Lidder",
+        "model": "GA6",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/ga6-portable-combination-capper-over-capper-lidder",
+        "is_available": true
+    },
+    {
+        "id": 32,
+        "name": "GC8 Portable Combination Capper / Over Capper / Lidder",
+        "model": "GC8",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/gc8-portable-combination-capper-over-capper-lidder",
+        "is_available": true
+    },
+    {
+        "id": 33,
+        "name": "BP - Portable Automatic Ball Placer / Inserter",
+        "model": "BP",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/bp-portable-automatic-ball-placer-inserter",
+        "is_available": true
+    },
+    {
+        "id": 34,
+        "name": "P-700 Hand Capper",
+        "model": "P-700",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/p-700-hand-capper",
+        "is_available": true
+    },
+    {
+        "id": 35,
+        "name": "BK-4 Belt Capper",
+        "model": "BK-4",
+        "category": 4,
+        "url": "https://kapsall.com//solutions/cappers/bk-4-belt-capper",
+        "is_available": true
+    },
+    {
+        "id": 36,
+        "name": "LW-40 Wrap Labeler",
+        "model": "LW-40",
+        "category": 5,
+        "url": "https://kapsall.com//solutions/labelers/lw-40",
+        "is_available": true
+    },
+    {
+        "id": 37,
+        "name": "LC-40 Wrap &amp; Front/Back",
+        "model": "LC-40",
+        "category": 5,
+        "url": "https://kapsall.com//solutions/labelers/lc-40-wrap-frontback",
+        "is_available": true
+    },
+    {
+        "id": 38,
+        "name": "LW-80 High Speed Wrap Labeler",
+        "model": "LW-80",
+        "category": 5,
+        "url": "https://kapsall.com//solutions/labelers/lw-80-high-speed-wrap-labeler",
+        "is_available": true
+    },
+    {
+        "id": 39,
+        "name": "LC-80 Combination Wrap and Front/Back Labeler",
+        "model": "LC-80",
+        "category": 5,
+        "url": "https://kapsall.com//solutions/labelers/lc-80-combination-wrap-and-frontback-labeler",
+        "is_available": true
+    },
+    {
+        "id": 40,
+        "name": "LF-40 Combination Wrap / Panel Labeler.",
+        "model": "LF-40",
+        "category": 5,
+        "url": "https://kapsall.com//solutions/labelers/lf-40-combination-wrap-panel-labeler",
+        "is_available": true
+    },
+    {
+        "id": 41,
+        "name": "LF-80 High Speed Combination Wrap / Panel Labeler",
+        "model": "LF-80",
+        "category": 5,
+        "url": "https://kapsall.com//solutions/labelers/lf-80-high-speed-combination-wrap-panel-labeler",
+        "is_available": true
+    },
+    {
+        "id": 42,
+        "name": "AM-100 Benchtop Induction Sealer",
+        "model": "AM-100",
+        "category": 6,
+        "url": "https://kapsall.com//solutions/induction-sealers/am-100-benchtop-sealer",
+        "is_available": true
+    },
+    {
+        "id": 43,
+        "name": "AM-250 Automatic Induction Sealer",
+        "model": "AM-250",
+        "category": 6,
+        "url": "https://kapsall.com//solutions/induction-sealers/am-250-automatic-sealer",
+        "is_available": true
+    },
+    {
+        "id": 44,
+        "name": "AM-500 High Speed Induction Sealer",
+        "model": "AM-500",
+        "category": 6,
+        "url": "https://kapsall.com//solutions/induction-sealers/am-500-high-speed-sealer",
+        "is_available": true
+    },
+    {
+        "id": 45,
+        "name": "Conveyor",
+        "model": "Conveyor",
+        "category": 7,
+        "url": "https://kapsall.com//solutions/conveyors/conveyor",
+        "is_available": true
+    },
+    {
+        "id": 46,
+        "name": "BC-16(23) Bottle Carrier",
+        "model": "BC-16(23)",
+        "category": 7,
+        "url": "https://kapsall.com//solutions/conveyors/bc-1623-bottle-carrier",
+        "is_available": true
+    },
+    {
+        "id": 47,
+        "name": "AM-CSM Cap Seal Meter",
+        "model": "AM-CSM",
+        "category": 8,
+        "url": "https://kapsall.com//solutions/quality-control/am-csm-cap-seal-meter",
+        "is_available": true
+    },
+    {
+        "id": 48,
+        "name": "AM-DA Quality Control Center",
+        "model": "AM-DA",
+        "category": 8,
+        "url": "https://kapsall.com//solutions/quality-control/am-da-quality-control-center",
+        "is_available": true
+    },
+    {
+        "id": 49,
+        "name": "FS-U Unscrambling Table",
+        "model": "FS-U",
+        "category": 9,
+        "url": "https://kapsall.com//solutions/bottle-unscramblers/fs-u-unscrambling-table",
+        "is_available": true
+    },
+    {
+        "id": 50,
+        "name": "FS-A Accumulation Table",
+        "model": "FS-A",
+        "category": 9,
+        "url": "https://kapsall.com//solutions/rotary-tables/fs-a-accumulation-table",
+        "is_available": true
+    },
+    {
+        "id": 51,
+        "name": "FS-S Rotary Surge Table",
+        "model": "FS-S",
+        "category": 9,
+        "url": "https://kapsall.com//solutions/rotary-tables/fs-s-rotary-surge-table",
+        "is_available": true
+    },
+    {
+        "id": 52,
+        "name": "EB-650 Bench Torque Meter",
+        "model": "EB-650",
+        "category": 10,
+        "url": "https://kapsall.com//solutions/torque-meters/eb-650-bench-torque-meter",
+        "is_available": true
+    },
+    {
+        "id": 53,
+        "name": "EM-980 Torque Monitor",
+        "model": "EM-980",
+        "category": 10,
+        "url": "https://kapsall.com//solutions/torque-meters/em-980-torque-monitor",
+        "is_available": true
+    },
+    {
+        "id": 54,
+        "name": "FS-B Bulk Parts Elevator",
+        "model": "FS-B",
+        "category": 11,
+        "url": "https://kapsall.com//solutions/rotary-feeders-elevators-hoppers/fs-b-bulk-parts-elevator",
+        "is_available": true
+    },
+    {
+        "id": 55,
+        "name": "MINI-L Compact Parts Elevator",
+        "model": "MINI-L",
+        "category": 11,
+        "url": "https://kapsall.com//solutions/rotary-feeders-elevators-hoppers/mini-l-compact-parts-elevator",
+        "is_available": true
+    },
+    {
+        "id": 56,
+        "name": "FSRF-24 Parts and Cap Feeder",
+        "model": "FSRF-24",
+        "category": 11,
+        "url": "https://kapsall.com//solutions/rotary-feeders-elevators-hoppers/fsrf-24-parts-and-cap-feeder",
+        "is_available": true
+    },
+    {
+        "id": 57,
+        "name": "FSRF-36 Parts and Cap Feeder",
+        "model": "FSRF-36",
+        "category": 11,
+        "url": "https://kapsall.com//solutions/rotary-feeders-elevators-hoppers/fsrf-36-parts-and-cap-feeder",
+        "is_available": true
     }
 ]

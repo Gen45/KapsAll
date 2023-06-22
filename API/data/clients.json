@@ -1,32 +1,26 @@
 [
     {
-        "name": "Client 1",
-        "email": "email@domain.com",
-        "id": 1
+        "id": 1,
+        "first": "John",
+        "last": "Doe",
+        "email": "JohnDoe@gmail.com"
     },
     {
-        "name": "Client 2",
-        "email": "email@domain.com",
-        "id": 2
+        "id": 2,
+        "first": "Jane",
+        "last": "Doe",
+        "email": "JaneDoe@gmail.com"
     },
     {
-        "name": "Client 3",
-        "email": "email@domain.com",
-        "id": 3
+        "id": 3,
+        "first": "John",
+        "last": "Smith",
+        "email": "JohnSmith@gmail.com"
     },
     {
-        "name": "Client 4",
-        "email": "email@domain.com",
-        "id": 4
-    },
-    {
-        "name": "Client 5",
-        "email": "email@domain.com",
-        "id": 5
-    },
-    {
-        "name": "Client 6",
-        "email": "email@domain.com",
-        "id": 6
+        "id": 4,
+        "first": "Jane",
+        "last": "Smith",
+        "email": "JaneSmith@gmail.com"
     }
 ]

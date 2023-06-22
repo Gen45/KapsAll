@@ -28,12 +28,12 @@ export function TableComponent({
                                             <div className="flex flex-col">
                                                 <FaSortUp
                                                     className={`text-sm translate-y-1/2 ${column.isSorted && !column.isSortedDesc
-                                                        ? "text-persian-red-400"
+                                                        ? "text-red-400"
                                                         : "text-gray-300"
                                                         }`}
                                                 />
                                                 <FaSortDown
-                                                    className={`text-sm -translate-y-1/2 ${column.isSortedDesc ? "text-persian-red-400" : "text-gray-300"
+                                                    className={`text-sm -translate-y-1/2 ${column.isSortedDesc ? "text-red-400" : "text-gray-300"
                                                         }`}
                                                 />
                                             </div>

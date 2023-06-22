@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TopButton } from "./components/TopButton";
 import { Button } from "./components/Button";
 
@@ -19,6 +19,9 @@ function App() {
     if (location.pathname.search('campaigns') === 1) {
       setPage('campaigns');
     }
+    if (location.pathname.search('new') === 1) {
+      setPage('campaigns');
+    }
   }, [])
 
   return (
@@ -28,7 +31,9 @@ function App() {
           <div className="flex py-2 items-center bg-white dark:bg-gray-900 border-b-[1px] dark:border-gray-700">
             <div className="container px-10  flex items-center justify-between mx-auto ">
               <h1 className="text-3xl text-red mr-10">
-                <img className="h-11" src={Logo} alt="KapsAll Logo" />
+                <Link to="/" onClick={() => setPage('campaigns')}>
+                  <img className="h-11" src={Logo} alt="KapsAll Logo" />
+                </Link>
               </h1>
               <nav className="flex  gap-3 text-sm font-semibold text-gray-400">
                 <TopButton url="/campaigns" title="Campaigns" active={page == 'campaigns'} onClick={() => setPage('campaigns')} />

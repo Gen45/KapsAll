@@ -24,17 +24,6 @@ export function ClientForm() {
               placeholder="First Name"
             />
           </div>
-          <div className="mb-6  max-w-sm">
-            <label className="block text-sm text-gray-500" htmlFor="lastName">
-              Last Name
-            </label>
-            <input
-              id="lastName"
-              className={inputStyle}
-              type="text"
-              placeholder="Last Name"
-            />
-          </div>
         </div>
       </div>
     </>

@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Bottle Unscramblers",
+        "url": "/solutions/bottle-unscramblers"
+    },
+    {
+        "id": 2,
+        "name": "Bottle Cleaners",
+        "url": "/solutions/bottle-cleaners"
+    },
+    {
+        "id": 3,
+        "name": "Liquid Fillers",
+        "url": "/solutions/liquid-fillers"
+    },
+    {
+        "id": 4,
+        "name": "Cappers",
+        "url": "/solutions/cappers"
+    },
+    {
+        "id": 5,
+        "name": "Labelers",
+        "url": "/solutions/labelers"
+    },
+    {
+        "id": 6,
+        "name": "Induction Sealers",
+        "url": "/solutions/induction-sealers"
+    },
+    {
+        "id": 7,
+        "name": "Conveyors",
+        "url": "/solutions/conveyors"
+    },
+    {
+        "id": 8,
+        "name": "Quality Control",
+        "url": "/solutions/quality-control"
+    },
+    {
+        "id": 9,
+        "name": "Rotary Tables",
+        "url": "/solutions/rotary-tables"
+    },
+    {
+        "id": 10,
+        "name": "Torque Meters",
+        "url": "/solutions/torque-meters"
+    },
+    {
+        "id": 11,
+        "name": "Rotary Feeders / Elevators / Hoppers",
+        "url": "/solutions/rotary-feeders-elevators-hoppers"
+    }
+]

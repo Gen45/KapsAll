@@ -3,9 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
 import { Button2 } from "@components/Table/Button2";
-import { fetchData } from '@utils/fetch';
-import { processProducts } from '@/utils/processors';
-import { MODALTYPES } from '@/utils/constants';
+import { API_URL, MODALTYPES } from '@/utils/constants';
 
 function ProductsSettings() {
 
@@ -20,7 +18,14 @@ function ProductsSettings() {
   const [tableData, setTableData] = useState<any | null>(null);
 
   useEffect(() => {
-    fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=products-real', setTableData, processProducts);
+    const go = async () => {
+      const products = fetch(`${API_URL}products`).then(r => r.json());
+      const res = await Promise.all([products]);
+      const [productsRes] = res;
+      setTableData(productsRes);
+      // console.log(productsRes);
+    }
+    go()
   }, []);
 
   const getColumns = () => [
@@ -69,7 +74,7 @@ function ProductsSettings() {
           {modalContent.type == MODALTYPES.EDIT &&
             <div className="border-2 rounded-lg">
               <div className="text-red-500 p-8">
-                <p> EDIT CLIENT DATA HERE </p>
+                <p> EDIT PRODUCT DATA HERE </p>
               </div>
             </div>
           }

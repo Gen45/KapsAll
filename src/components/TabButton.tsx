@@ -4,12 +4,12 @@ export function TabButton({ title, active, dark, onClick }: { title: string; act
 
   if (dark) {
     TabButtonStyle += active
-      ? "border-b-persian-red-600 border-b-2 text-persian-red-600 "
-      : "text-gray-500 hover:text-persian-red-500 hover:border-b-4 border-b-transparent "
+      ? "border-b-red-600 border-b-2 text-red-600 "
+      : "text-gray-500 hover:text-red-500 hover:border-b-4 border-b-transparent "
   } else {
     TabButtonStyle += active
       ? "border-b-white  border-b-4 text-white "
-      : "text-persian-red-300 hover:text-persian-red-200 hover:border-b-4 border-b-transparent "
+      : "text-red-300 hover:text-red-200 hover:border-b-4 border-b-transparent "
   }
 
   return (

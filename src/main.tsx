@@ -24,6 +24,11 @@ const router = createBrowserRouter([
         path: "/campaigns",
         element: <Inbox />,
         errorElement: <ErrorPage />
+      }, 
+      {
+        path: "/",
+        element: <Inbox />,
+        errorElement: <ErrorPage />
       },
       {
         path: "/settings",

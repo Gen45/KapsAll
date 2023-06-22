@@ -39,7 +39,7 @@ export function SelectMenu1({ value, setValue, options, className = "", disabled
                 <Listbox.Option
                   key={option.id}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-3 pl-10 pr-4 ${active ? "bg-persian-red-100" : ""
+                    `relative cursor-default select-none py-3 pl-10 pr-4 ${active ? "bg-red-100" : ""
                     }`
                   }
                   value={option.id}
@@ -53,7 +53,7 @@ export function SelectMenu1({ value, setValue, options, className = "", disabled
                         {option.caption}
                       </span>
                       {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-persian-red-400">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-red-400">
                           <FaCheck size="0.5rem" aria-hidden="true" />
                         </span>
                       ) : null}

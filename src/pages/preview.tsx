@@ -1,33 +1,55 @@
-import { ClientForm } from "@components/ClientForm";
+import { useEffect, useState } from "react";
+import { Select, Option, Button } from "@material-tailwind/react";
 import { TabButton } from "@components/TabButton";
 import { Template1 } from "@templates/Template1";
+import { API_URL } from "@/utils/constants";
+// import { processProducts } from "@/utils/processors";
 
 export function Preview() {
-    // interface information {
-    //     sales: object;
-    //     northenFacility: object;
-    //     southernFacility: string;
-    // }
-    const information = {
-        sales: {
-            email: "Mike@kapsall.com",
-            phone: "631-727-0300",
-            website: "http://www.KapsAll.com",
-        },
-        northenFacility: {
-            address1: "200 Mill Road",
-            address2: "Riverhead, NY  11901",
-        },
-        southernFacility: {
-            address1: "251 North Congress Ave.",
-            address2: "Delray Beach, FL  33445",
-        },
-    };
+
+    const [clientsData, setClientData] = useState(Array);
+    const [productsData, setProductData] = useState(Array);
+
+    useEffect(() => {
+
+        const go = async () => {
+            const clients = fetch(`${API_URL}clients`).then(r => r.json());
+            const products = fetch(`${API_URL}products`).then(r => r.json());
+
+            const res = await Promise.all([products, clients]);
+
+            const [productsRes, clientsRes] = res;
+            setClientData(clientsRes)
+            setProductData(productsRes)
+        }
+        go()
+
+    }, []);
+
     return (
         <main className="flex w-full">
             <div className="grow pr-10 pt-20">
-                <ClientForm />
-                <ClientForm />
+                <div className="form pr-11">
+
+                    <div className="flex flex-col gap-6">
+                        <Select variant="outlined" label="Select client" color="red">
+                            {
+                                clientsData?.map((client: any) => {
+                                    return <Option key={`${client.id}`} value={`${client.id}`}>{client.first} {client.last}</Option>
+                                })
+                            }
+                        </Select>
+                        <Select variant="outlined" label="Select product" color="red">
+                            {
+                                productsData?.map((product: any) => {
+                                    return <Option key={`${product.id}`} value={`${product.id}`}>{product.name}</Option>
+                                })
+                            }
+                        </Select>
+                        <Button ripple={true} color="red">Save Campaign</Button>
+                    </div>
+
+                </div>
             </div>
             <div className="w-[700px]">
                 <nav className="container px-10 bg-[#c7362e] rounded-t-md overflow-hidden -mb-[2px] mx-auto flex gap-3 text-sm font-semibold text-white">
@@ -48,7 +70,6 @@ export function Preview() {
                         }}
                         meetingUrl="https://something.com/"
                         client={{ name: "Jeff", id: "1" }}
-                        information={information}
                     />
                 </div>
             </div>

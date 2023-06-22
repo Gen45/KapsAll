@@ -3,8 +3,9 @@ import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
 import { Button2 } from "@components/Table/Button2";
-import { fetchData } from '../utils/fetch';
-import { findById, processCampaigns, processProducts } from '@/utils/processors';
+import { processCampaigns } from '@/utils/processors';
+import { Chip } from '@/components/Chip';
+import { API_URL } from '@/utils/constants';
 
 function Campaigns() {
 
@@ -21,32 +22,19 @@ function Campaigns() {
         large: true,
     });
 
-    const [productsData, setProductData] = useState(Array);
-    const [clientsData, setClientData] = useState(Array);
     const [tableData, setTableData] = useState(Array);
-    // let _productsData = [];
 
     useEffect(() => {
-
         const go = async () => {
-            const products = fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=products-real').then(r => r.json());
-            const clients = fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=clients').then(r => r.json());
-            const campaigns = fetch('https://mwxdigital.com/kapsall/kapsall/API/?type=campaigns').then(r => r.json());
-
+            const products = fetch(`${API_URL}products`).then(r => r.json());
+            const clients = fetch(`${API_URL}clients`).then(r => r.json());
+            const campaigns = fetch('https://mwxdigital.com/kapsall/kapsall/API/dummy.php?type=campaigns').then(r => r.json());
             const res = await Promise.all([products, clients, campaigns]);
-
-            // console.log(res)
             const [productsRes, clientsRes, campaignsRes] = res;
-            // console.log(processProducts(productsRes), clientsRes, processCampaigns(campaignsRes))
-            setProductData(processProducts(productsRes))
-            setClientData(clientsRes)
-            setTableData(processCampaigns(campaignsRes))
+            setTableData(processCampaigns(campaignsRes, productsRes, clientsRes))
         }
         go()
-
-    }, [productsData,
-        clientsData,
-        tableData]);
+    }, []);
 
     const getColumns = () => [
         {
@@ -57,10 +45,10 @@ function Campaigns() {
             Header: "Client",
             accessor: "client",
             Cell: ({ row }: { row: any; }) => {
-                const clientName = findById(clientsData, row.original.client) !== undefined ? findById(clientsData, row.original.client).name : 'nope'
+                // console.log(row.original);
                 return (
                     <>
-                        {clientName}
+                        {`${row.original.client.first} ${row.original.client.last}`}
                     </>
                 );
             },
@@ -69,11 +57,10 @@ function Campaigns() {
             Header: "Product",
             accessor: "product",
             Cell: ({ row }: { row: any; }) => {
-                const productName = findById(productsData, row.original.product) !== undefined ? findById(productsData, row.original.product).model : 'nope'
-
+                // console.log(row.original);
                 return (
                     <>
-                        {productName}
+                        {row.original.product.name}
                     </>
                 );
             },
@@ -85,6 +72,15 @@ function Campaigns() {
         {
             Header: "Status",
             accessor: "status",
+            Cell: ({ row }: { row: any; }) => {
+                return (
+                    <>
+                        <div className="flex gap-2 items-center">
+                            <Chip type={row.original.status}>{row.original.status}</Chip>
+                        </div>
+                    </>
+                );
+            },
         },
         {
             Header: "Actions",
@@ -126,7 +122,7 @@ function Campaigns() {
                     {modalContent.type == MODALTYPES.EDIT &&
                         <div className="border-2 rounded-lg">
                             <div className="text-red-500 p-8">
-                                <p> EDIT CLIENT DATA HERE </p>
+                                <p> EDIT CAMPAIGN HERE </p>
                             </div>
                         </div>
                     }

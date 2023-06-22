@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TabButton } from "@components/TabButton";
-import { Table, TableColumn } from "@components/Table";
 import { Campaigns } from "./Campaigns";
 
 export function Inbox() {

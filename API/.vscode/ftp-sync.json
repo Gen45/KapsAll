@@ -1,0 +1,27 @@
+{
+    "remotePath": "/public_html/kapsall/API/",
+    "host": "mwxdigital.com",
+    "username": "rootftp@mwxdigital.com", 
+    "password": "mwx2020Too!",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}

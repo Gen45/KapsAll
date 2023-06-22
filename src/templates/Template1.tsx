@@ -9,7 +9,7 @@ type Client = {
   name: string;
 };
 
-export function Template1({ product, client, information, meetingUrl, }: { product: Product; client: Client; information: object; meetingUrl: string; }) {
+export function Template1({ product, client, meetingUrl }: { product: Product; client: Client; meetingUrl: string; }) {
 
   return (
     <div className="py-10 w-[500px] mx-auto text-sm">
@@ -39,7 +39,7 @@ export function Template1({ product, client, information, meetingUrl, }: { produ
       <p className="my-5">
         <a
           href={meetingUrl}
-          className="px-5 py-3 rounded-xl bg-persian-red-600 text-white font-bold"
+          className="px-5 py-3 rounded-xl bg-red-600 text-white font-bold"
         >
           Click Here To Schedule a Zoom Call to Review Proposal
         </a>
@@ -62,7 +62,7 @@ export function Template1({ product, client, information, meetingUrl, }: { produ
         <p className="font-bold text-red-800">Sales</p>
         <p>
           <span className="font-semibold">e-Mail:</span>
-          <a href={`"${information.sales.email}"`}>{information.sales.email}</a>
+          <a href="asd">asdasd</a>
         </p>
         <p>
           <span className="font-semibold">Phone:</span>

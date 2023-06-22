@@ -1,4 +1,5 @@
 import { BASEURL } from "./constants";
+import { formatter } from "./utils";
 
 
 export const processProducts = (data: any) => {
@@ -29,14 +30,27 @@ export const processProducts = (data: any) => {
     return products;
 }
 
-export const processCampaigns = (data: any) => {
-    return data;
+export const processCampaigns = (campaigns: any, products: any, clients: any) => {
+    return campaigns.map((campaign: any) => {
+        return {
+            id: campaign.id,
+            name: campaign.name,
+            product: findById(products, campaign.product),
+            client: findById(clients, campaign.client),
+            quote: formatter.format(campaign.quote),
+            status: campaign.status,
+            start_date: campaign.start_date,
+            end_date: campaign.end_date,
+            created_at: campaign.created_at,
+            updated_at: campaign.updated_at,
+        }
+    });
 }
 
 export const findById = (data: Array<any>, id: number) => {
     if (data !== null || id !== null) {
-        return (data.filter((item) => item.id === id))[0];
-    } else {    
+        return (data.filter((item) => String(item.id) === String(id)))[0];
+    } else {
         return {};
     }
 }

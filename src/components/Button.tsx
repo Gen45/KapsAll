@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, disabled, cla
   };
 
   const buttonClasses = classNames(
-    'px-6 py-2 bg-persian-red-600 hover:bg-persian-red-700 text-white font-semibold rounded-full',
+    'px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full',
     {
       'opacity-50 cursor-not-allowed': disabled || isLoading,
     }

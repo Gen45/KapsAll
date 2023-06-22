@@ -3,8 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
 import { Button2 } from "@components/Table/Button2";
-import { fetchData } from '@utils/fetch';
-import { MODALTYPES } from '@/utils/constants';
+import { API_URL, MODALTYPES } from '@/utils/constants';
 
 function ClientSettings() {
 
@@ -20,14 +19,29 @@ function ClientSettings() {
 
     const [tableData, setTableData] = useState<any | null>(null);
 
+
+
     useEffect(() => {
-        fetchData('https://mwxdigital.com/kapsall/kapsall/API/?type=clients', setTableData, null);
-    }, []);
+        const go = async () => {
+          const clients = fetch(`${API_URL}clients`).then(r => r.json());
+          const res = await Promise.all([clients]);
+          const [clientsRes] = res;
+          setTableData(clientsRes);
+        }
+        go()
+      }, []);
 
     const getColumns = () => [
         {
-            Header: "Client Name",
+            Header: "Name",
             accessor: "name",
+            Cell: ({ row }: { row: any; }) => {
+                return (
+                    <>
+                        {`${row.original.first} ${row.original.last}`}
+                    </>
+                );
+            },
         },
         {
             Header: "Email",
