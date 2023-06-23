@@ -59,15 +59,13 @@ function ClientSettings() {
 
     const getColumns = () => [
         {
-            Header: "Name",
-            accessor: "name",
-            Cell: ({ row }: { row: any; }) => {
-                return (
-                    <>
-                        {`${row.original.first} ${row.original.last}`}
-                    </>
-                );
-            },
+            Header: "First name",
+            accessor: "first"
+        },
+        {
+            Header: "Last name",
+            accessor: "last",
+            hidden: true,
         },
         {
             Header: "Email",
@@ -122,7 +120,7 @@ function ClientSettings() {
                                         <Input size="lg" label="Last name" color="red" defaultValue={clientData.last} onChange={(e) => setClientData({ ...clientData, last: e.target.value })} />
                                     </div>
                                     <div className="mb-4">
-                                        <Input size="lg" type="email" label="Email" color="red" defaultValue={clientData.email} onChange={(e) => setClientData({ ...clientData, email: e.target.value })} />
+                                        <Input size="lg" label="Email" color="red" defaultValue={clientData.email} onChange={(e) => setClientData({ ...clientData, email: e.target.value })} />
                                     </div>
                                     <div className="flex items-center justify-between pt-4">
                                         <p>{errorMessage}</p>

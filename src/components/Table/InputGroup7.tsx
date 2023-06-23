@@ -22,7 +22,7 @@ export function InputGroup7({
                 placeholder={label}
                 aria-label={label}
                 onChange={onChange}
-                className={`peer block w-full p-3 text-gray-600 border-none focus:outline-none focus:ring-0 appearance-none ${disabled ? "bg-gray-200" : ""
+                className={`text-sm peer block w-full p-3 text-gray-600 border-none focus:outline-none focus:ring-0 appearance-none ${disabled ? "bg-gray-200" : ""
                     } ${inputClassName}`}
                 disabled={disabled}
             />
