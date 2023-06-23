@@ -6,6 +6,7 @@ import { Button2 } from "@components/Table/Button2";
 import { processCampaigns } from '@/utils/processors';
 import { Chip } from '@/components/Chip';
 import { API_URL } from '@/utils/constants';
+import { Spinner } from '@material-tailwind/react';
 
 function Campaigns() {
 
@@ -22,16 +23,19 @@ function Campaigns() {
         large: true,
     });
 
-    const [tableData, setTableData] = useState(Array);
+    const [tableData, setTableData] = useState(null);
 
     useEffect(() => {
         const go = async () => {
             const products = fetch(`${API_URL}products`).then(r => r.json());
             const clients = fetch(`${API_URL}clients`).then(r => r.json());
-            const campaigns = fetch('https://mwxdigital.com/kapsall/kapsall/API/dummy.php?type=campaigns').then(r => r.json());
+            // const campaigns = fetch('https://mwxdigital.com/kapsall/kapsall/API/dummy.php?type=campaigns').then(r => r.json());
+            const campaigns = fetch(`${API_URL}campaigns`).then(r => r.json());
             const res = await Promise.all([products, clients, campaigns]);
             const [productsRes, clientsRes, campaignsRes] = res;
-            setTableData(processCampaigns(campaignsRes, productsRes, clientsRes))
+            // console.log(campaignsRes);
+            // console.log(processCampaigns(campaignsRes, productsRes, clientsRes));
+            setTableData(processCampaigns(campaignsRes, productsRes, clientsRes));
         }
         go()
     }, []);
@@ -39,7 +43,7 @@ function Campaigns() {
     const getColumns = () => [
         {
             Header: "Campaign Code",
-            accessor: "name",
+            accessor: "code",
         },
         {
             Header: "Client",
@@ -47,9 +51,14 @@ function Campaigns() {
             Cell: ({ row }: { row: any; }) => {
                 // console.log(row.original);
                 return (
-                    <>
-                        {`${row.original.client.first} ${row.original.client.last}`}
-                    </>
+                    <div className='whitespace-nowrap'>
+                        {row.original.client
+                            ?
+                            `${row.original.client.first} ${row.original.client.last}`
+                            :
+                            <i className='italic text-red-400'>{'No client assigned'}</i>
+                        }
+                    </div>
                 );
             },
         },
@@ -59,9 +68,14 @@ function Campaigns() {
             Cell: ({ row }: { row: any; }) => {
                 // console.log(row.original);
                 return (
-                    <>
-                        {row.original.product.name}
-                    </>
+                    <div className='whitespace-nowrap'>
+                        {row.original.product
+                            ?
+                            `${row.original.product.name} `
+                            :
+                            <i className='italic text-red-400'>{'No product assigned'}</i>
+                        }
+                    </div>
                 );
             },
         },
@@ -110,9 +124,10 @@ function Campaigns() {
             {tableData
                 ?
                 <Table1 data={tableData} columns={columns} />
-                // <p>ya va</p>
                 : (
-                    <div className="flex justify-center items-center w-full h-full py-36">Loading...</div>
+                    <div className="flex justify-center items-center w-full h-full py-36">
+                        <Spinner className="h-12 w-12" color="red" />
+                    </div>
                 )}
 
             <Modali.Modal {...Modal}>

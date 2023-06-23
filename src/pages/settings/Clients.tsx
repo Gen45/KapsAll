@@ -1,35 +1,61 @@
-import Modali, { useModali } from 'modali';
 import { useEffect, useMemo, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
-import { Button2 } from "@components/Table/Button2";
 import { API_URL, MODALTYPES } from '@/utils/constants';
+import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Input, Spinner } from '@material-tailwind/react';
+
 
 function ClientSettings() {
-
-
-
-    const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT' });
-
-    const [Modal, toggleModal] = useModali({
-        animated: true,
-        title: modalContent.title,
-        large: true,
-    });
-
+    const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT', data: null });
+    const [clientData, setClientData] = useState<any | null>(null);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
     const [tableData, setTableData] = useState<any | null>(null);
 
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        if (modalContent.data !== null) {
+            fetch(`${API_URL}clients/${clientData.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify({ first: clientData.first, last: clientData.last, email: clientData.email })
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        console.log(response);
+                        console.log(response.json());
+                        setErrorMessage('Success');
+                        handleOpen();
+                        refreshClientTable();
+                    } else {
+                        console.log(response);
+                        console.log(response.json());
+                    }
+                })
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setErrorMessage('Error saving client data...');
+                    handleOpen();
+                });
+        }
+    };
 
+    const refreshClientTable = async () => {
+        const clients = fetch(`${API_URL}clients`).then(r => r.json());
+        const res = await Promise.all([clients]);
+        const [clientsRes] = res;
+        setTableData(clientsRes);
+    }
 
     useEffect(() => {
-        const go = async () => {
-          const clients = fetch(`${API_URL}clients`).then(r => r.json());
-          const res = await Promise.all([clients]);
-          const [clientsRes] = res;
-          setTableData(clientsRes);
-        }
-        go()
-      }, []);
+        refreshClientTable()
+    }, []);
 
     const getColumns = () => [
         {
@@ -54,16 +80,17 @@ function ClientSettings() {
             Cell: ({ row }: { row: any; }) => {
                 return (
                     <div className="flex gap-2 items-center">
-                        <Button2 content={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
+                        <Button className="rounded-full p-2" variant="outlined" ripple color="gray" size="sm" onClick={() => handleToggleEditModal(row.original)}><FaEdit color="gray" size="0.9rem" /></Button>
                     </div>
                 );
             },
         },
     ]
 
-    const handleToggleEditModal = (templateData: any) => {
-        setModalContent({ title: templateData.name + ' edit', body: templateData.description, type: MODALTYPES.EDIT });
-        toggleModal();
+    const handleToggleEditModal = (data: any) => {
+        setClientData({ id: data.id, first: data.first, last: data.last, email: data.email });
+        setModalContent({ title: 'Edit client', body: data.description, type: MODALTYPES.EDIT, data: data });
+        handleOpen();
     }
 
     const columns = useMemo(getColumns, []);
@@ -74,22 +101,51 @@ function ClientSettings() {
                 ?
                 <Table1 data={tableData} columns={columns} />
                 : (
-                    <div className="flex justify-center items-center w-full h-full py-36">Loading...</div>
+                    <div className="flex justify-center items-center w-full h-full py-36">
+                        <Spinner className="h-12 w-12" color="red" />
+                    </div>
                 )}
 
-            <Modali.Modal {...Modal}>
-                <div className="flex flex-col gap-4 grow p-8">
+            <Dialog open={open} handler={handleOpen}>
+                <DialogHeader>{modalContent.title}</DialogHeader>
+                <DialogBody divider>
                     {modalContent.body}
 
                     {modalContent.type == MODALTYPES.EDIT &&
                         <div className="border-2 rounded-lg">
-                            <div className="text-red-500 p-8">
-                                <p> EDIT CLIENT DATA HERE </p>
+                            <div className="p-8">
+                                <div className="max-w-md mx-auto mb-4 p-8">
+                                    <div className="mb-4">
+                                        <Input size="lg" label="First name" color="red" defaultValue={clientData.first} onChange={(e) => setClientData({ ...clientData, first: e.target.value })} />
+                                    </div>
+                                    <div className="mb-4">
+                                        <Input size="lg" label="Last name" color="red" defaultValue={clientData.last} onChange={(e) => setClientData({ ...clientData, last: e.target.value })} />
+                                    </div>
+                                    <div className="mb-4">
+                                        <Input size="lg" type="email" label="Email" color="red" defaultValue={clientData.email} onChange={(e) => setClientData({ ...clientData, email: e.target.value })} />
+                                    </div>
+                                    <div className="flex items-center justify-between pt-4">
+                                        <p>{errorMessage}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     }
-                </div>
-            </Modali.Modal>
+                </DialogBody>
+                <DialogFooter>
+                    <Button
+                        variant="text"
+                        color="red"
+                        onClick={handleOpen}
+                        className="mr-1"
+                    >
+                        <span>Cancel</span>
+                    </Button>
+                    <Button variant="gradient" color="red" onClick={handleSubmit}>
+                        <span>Save</span>
+                    </Button>
+                </DialogFooter>
+            </Dialog>
         </div>
     );
 }

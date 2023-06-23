@@ -1,28 +1,29 @@
 import { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TopButton } from "./components/TopButton";
-import { Button } from "./components/Button";
+// import { Button } from "./components/Button";
 
 import Logo from "./assets/KapsAll-logo.png";
+import { Button } from "@material-tailwind/react";
 
 function App() {
   const navigate = useNavigate();
   const [page, setPage] = useState('campaigns');
-
   const location = useLocation();
+  const isPage = (pageName: string) => location.pathname.search(pageName.toLowerCase()) !== -1
+
 
   useEffect(() => {
-    console.log(location.pathname)
-    if (location.pathname.search('settings') === 1) {
+    if (isPage('settings')) {
       setPage('settings');
     }
-    if (location.pathname.search('campaigns') === 1) {
+    if (isPage('campaigns')) {
       setPage('campaigns');
     }
-    if (location.pathname.search('new') === 1) {
+    if (isPage('new')) {
       setPage('campaigns');
     }
-  }, [])
+  }, [page])
 
   return (
     <>
@@ -49,17 +50,21 @@ function App() {
               {page[0].toUpperCase() + page.substring(1)}
             </h2>
             {
-              page == 'campaigns' &&
-              <Button onClick={() => { setPage('Compose'); navigate('/new'); }} >New Campaign</Button>
+              isPage('campaigns') &&
+              <Button className="rounded-full shadow-none" ripple color="red" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Campaign</Button>
             }
             {
-              // page == 'settings' &&
-              // <div>
-              //   <Button className="ml-4" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Client</Button>
-              //   <Button className="ml-4" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Product</Button>
-              //   <Button className="ml-4" onClick={() => { setPage('Compose'); navigate('/new'); }} >New Template </Button>
-              // </div>
+              isPage('client') &&
+              <Button disabled className="rounded-full shadow-none" ripple color="red" onClick={() => { setPage('Compose'); navigate('/newClient'); }} >New Client</Button>
             }
+            {
+              isPage('product') &&
+              <Button disabled className="rounded-full shadow-none" ripple color="red" onClick={() => { setPage('Compose'); navigate('/newProduct'); }} >New Product</Button>
+            }
+            {
+              isPage('template') &&
+              <Button disabled className="rounded-full shadow-none" ripple color="red" onClick={() => { setPage('Compose'); navigate('/newProduct'); }} >New Template</Button>
+            }            
           </div>
         </div>
         <div className="flex flex-col grow bg-gradient-to-b from-gray-200 to-gray-200 dark:from-gray-800 dark:to-slate-900 mt-12 ">

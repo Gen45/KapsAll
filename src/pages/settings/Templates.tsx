@@ -6,6 +6,7 @@ import { FaEdit, FaRegEye } from "react-icons/fa";
 import { Button2 } from "@components/Table/Button2";
 // import { fetchData } from "@/utils/fetch";
 import { API_URL, MODALTYPES } from "@/utils/constants";
+import { Spinner } from "@material-tailwind/react";
 
 function TemplatesSettings() {
 
@@ -24,7 +25,7 @@ function TemplatesSettings() {
 
     useEffect(() => {
         const go = async () => {
-            const templates = fetch(`${API_URL}templates`).then(r => r.json());
+            const templates = fetch(`${API_URL}templatex`).then(r => r.json());
             const res = await Promise.all([templates]);
             const [templatesRes] = res;
             setTableData(templatesRes);
@@ -70,7 +71,7 @@ function TemplatesSettings() {
     };
 
     const handleTogglePreviewModal = (templateData: any) => {
-        if(templateData.file !== ''){
+        if (templateData.file !== '') {
             fetchTemplate(templateData); // fetch template from API
         } else {
             handleToggleEditModal(templateData); // if no template file, open edit modal instead
@@ -90,7 +91,9 @@ function TemplatesSettings() {
                 ?
                 <Table1 data={tableData} columns={columns} />
                 : (
-                    <div className="flex justify-center items-center w-full h-full py-36">Loading...</div>
+                    <div className="flex justify-center items-center w-full h-full py-36">
+                        <Spinner className="h-12 w-12" color="red" />
+                    </div>
                 )}
 
             <Modali.Modal {...Modal}>

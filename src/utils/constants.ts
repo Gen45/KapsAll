@@ -5,4 +5,5 @@ export const MODALTYPES = {
     EDIT: 'edit',
 }
 
-export const API_URL = 'https://mwxdigital.com/kapsall/API/beta/';
+// export const API_URL = 'http://mwxdigital.com/kapsall/API/beta/';
+export const API_URL = 'http://cdn.mwxdigital.com/kapsall/API/beta/';
