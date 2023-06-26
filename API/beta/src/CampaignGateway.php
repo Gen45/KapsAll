@@ -36,6 +36,7 @@ class CampaignGateway
         $stmt->bindValue(":product", $data["product"], PDO::PARAM_INT);
         $stmt->bindValue(":quote", $data["quote"], PDO::PARAM_INT);
         $stmt->bindValue(":status", $data["status"], PDO::PARAM_STR);
+        $stmt->bindValue(":meeting_url", $data["meeting_url"], PDO::PARAM_STR);
         $stmt->bindValue(":start_date", $data["start_date"], PDO::PARAM_STR);
 
         $stmt->execute();
@@ -66,6 +67,7 @@ class CampaignGateway
                 SET code = :code,
                     client = :client,
                     product = :product,
+                    meeting_url = :meeting_url,
                     quote = :quote,
                     status = :status,
                     start_date = :start_date
@@ -76,6 +78,7 @@ class CampaignGateway
         $stmt->bindValue(":code", $new["code"] ?? $current["code"], PDO::PARAM_STR);
         $stmt->bindValue(":client", $new["client"] ?? $current["client"], PDO::PARAM_INT);
         $stmt->bindValue(":product", $new["product"] ?? $current["product"], PDO::PARAM_INT);
+        $stmt->bindValue(":meeting_url", $new["meeting_url"] ?? $current["meeting_url"], PDO::PARAM_STR);
         $stmt->bindValue(":quote", $new["quote"] ?? $current["quote"], PDO::PARAM_INT);
         $stmt->bindValue(":status", $new["status"] ?? $current["status"], PDO::PARAM_STR);
         $stmt->bindValue(":start_date", $new["start_date"] ?? $current["start_date"], PDO::PARAM_STR);
