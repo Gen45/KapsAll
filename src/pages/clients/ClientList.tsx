@@ -3,15 +3,27 @@ import { Table1 } from "@components/Table/Table1";
 import { FaEdit } from "react-icons/fa";
 import { API_URL, MODALTYPES } from '@/utils/constants';
 import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Input, Spinner } from '@material-tailwind/react';
+import { Button2 } from "@/components/Table/Button2";
 
-
-function ClientSettings() {
+export default function ClientList() {
+    
     const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT', data: null });
+    const [clientsData, setClientsData] = useState<any | null>(null);
     const [clientData, setClientData] = useState<any | null>(null);
     const [errorMessage, setErrorMessage] = useState('');
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
-    const [tableData, setTableData] = useState<any | null>(null);
+
+    const getClientsData = async () => {
+        const clients = fetch(`${API_URL}clients`).then(r => r.json());
+        const res = await Promise.all([clients]);
+        const [clientsRes] = res;
+        setClientsData(clientsRes);
+    }
+
+    useEffect(() => {
+        getClientsData()
+    }, []);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -29,7 +41,7 @@ function ClientSettings() {
                         console.log(response.json());
                         setErrorMessage('Success');
                         handleOpen();
-                        refreshClientTable();
+                        getClientsData();
                     } else {
                         console.log(response);
                         console.log(response.json());
@@ -45,17 +57,6 @@ function ClientSettings() {
                 });
         }
     };
-
-    const refreshClientTable = async () => {
-        const clients = fetch(`${API_URL}clients`).then(r => r.json());
-        const res = await Promise.all([clients]);
-        const [clientsRes] = res;
-        setTableData(clientsRes);
-    }
-
-    useEffect(() => {
-        refreshClientTable()
-    }, []);
 
     const getColumns = () => [
         {
@@ -78,7 +79,7 @@ function ClientSettings() {
             Cell: ({ row }: { row: any; }) => {
                 return (
                     <div className="flex gap-2 items-center">
-                        <Button className="rounded-full p-2" variant="outlined" ripple color="gray" size="sm" onClick={() => handleToggleEditModal(row.original)}><FaEdit color="gray" size="0.9rem" /></Button>
+                        <Button2 content={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
                     </div>
                 );
             },
@@ -95,9 +96,9 @@ function ClientSettings() {
 
     return (
         <div className="flex flex-col grow overflow-auto p-8">
-            {tableData
+            {clientsData
                 ?
-                <Table1 data={tableData} columns={columns} />
+                <Table1 data={clientsData} columns={columns} />
                 : (
                     <div className="flex justify-center items-center w-full h-full py-36">
                         <Spinner className="h-12 w-12" color="red" />
@@ -110,21 +111,19 @@ function ClientSettings() {
                     {modalContent.body}
 
                     {modalContent.type == MODALTYPES.EDIT &&
-                        <div className="border-2 rounded-lg">
-                            <div className="p-8">
-                                <div className="max-w-md mx-auto mb-4 p-8">
-                                    <div className="mb-4">
-                                        <Input size="lg" label="First name" color="red" defaultValue={clientData.first} onChange={(e) => setClientData({ ...clientData, first: e.target.value })} />
-                                    </div>
-                                    <div className="mb-4">
-                                        <Input size="lg" label="Last name" color="red" defaultValue={clientData.last} onChange={(e) => setClientData({ ...clientData, last: e.target.value })} />
-                                    </div>
-                                    <div className="mb-4">
-                                        <Input size="lg" label="Email" color="red" defaultValue={clientData.email} onChange={(e) => setClientData({ ...clientData, email: e.target.value })} />
-                                    </div>
-                                    <div className="flex items-center justify-between pt-4">
-                                        <p>{errorMessage}</p>
-                                    </div>
+                        <div className="p-8">
+                            <div className="max-w-md mx-auto mb-4 p-8">
+                                <div className="mb-4">
+                                    <Input size="lg" label="First name" color="red" defaultValue={clientData.first} onChange={(e) => setClientData({ ...clientData, first: e.target.value })} />
+                                </div>
+                                <div className="mb-4">
+                                    <Input size="lg" label="Last name" color="red" defaultValue={clientData.last} onChange={(e) => setClientData({ ...clientData, last: e.target.value })} />
+                                </div>
+                                <div className="mb-4">
+                                    <Input size="lg" label="Email" color="red" defaultValue={clientData.email} onChange={(e) => setClientData({ ...clientData, email: e.target.value })} />
+                                </div>
+                                <div className="flex items-center justify-between pt-4">
+                                    <p>{errorMessage}</p>
                                 </div>
                             </div>
                         </div>
@@ -147,5 +146,3 @@ function ClientSettings() {
         </div>
     );
 }
-
-export { ClientSettings };

@@ -11,7 +11,7 @@ export function SelectMenu1({ value, setValue, options, className = "", disabled
     <Listbox value={value} onChange={setValue} disabled={disabled}>
       <div className={`relative w-full ${className}`}>
         <Listbox.Button
-          className={`relative w-full  rounded-xl py-3 pl-3 pr-10 text-base text-gray-700 text-left shadow-[0_4px_10px_rgba(0,0,0,0.03)] focus:outline-none
+          className={`relative w-full  rounded-md py-3 pl-3 pr-10 text-base text-gray-700 text-left shadow-[0_4px_10px_rgba(0,0,0,0.03)] focus:outline-none
             ${disabled
               ? "bg-gray-200 cursor-not-allowed"
               : "bg-white cursor-default"
@@ -34,7 +34,7 @@ export function SelectMenu1({ value, setValue, options, className = "", disabled
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-xl bg-white text-base shadow-[0_4px_10px_rgba(0,0,0,0.03)] focus:outline-none">
+          <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white text-base shadow-[0_4px_10px_rgba(0,0,0,0.03)] focus:outline-none">
             {options.map((option: any) => (
               <Listbox.Option
                 key={option.id}

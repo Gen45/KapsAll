@@ -1,11 +1,9 @@
 import { BASEURL } from "./constants";
 import { formatter } from "./utils";
 
-
 export const processProducts = (data: any) => {
     let products = [] as any;
     data.forEach((category: any) => {
-        // console.log(category);
 
         const categoryName = category.name;
         const categoryId = category.id;
@@ -26,41 +24,33 @@ export const processProducts = (data: any) => {
             products.push(product);
         })
     })
-    // console.log(products);
     return products;
 }
 
 export const processCampaigns = (campaigns: any, products: any, clients: any) => {
     return campaigns.map((campaign: any) => {
-        // console.log(campaign.client);
-        // console.log(clients);
-        // console.log(findById(clients, campaign.client));
         const product = findById(products, campaign.product);
         const client = findById(clients, campaign.client);
-        // if (product !== undefined && client !== undefined) {
-            return {
-                id: campaign.id,
-                code: campaign.code,
-                product: product,
-                client: client,
-                quote: formatter.format(campaign.quote),
-                status: campaign.status,
-                start_date: campaign.start_date,
-                // end_date: campaign.end_date,
-                // created_at: campaign.created_at,
-                // updated_at: campaign.updated_at,
-            }
-        // } 
-        // else {
-        //     return undefined;
-        // }
-    }) //.filter((campaign: any) => campaign !== undefined);
+        const clientName = client !== undefined ? `${client.first || ''} ${client.last || ''}` : undefined;
+        const productName = product !== undefined ? `${product.name}` : undefined;
+        return {
+            id: campaign.id,
+            code: campaign.code,
+            product: productName,
+            client: clientName,
+            meeting_url: campaign.meeting_url,
+            quote: formatter.format(campaign.quote),
+            status: campaign.status,
+            start_date: campaign.start_date,
+        }
+    })
 }
 
 export const findById = (data: Array<any>, id: number) => {
-    if (data !== null || id !== null) {
+    if (data !== null && id !== null) {
+        // console.log(data);
         return (data.filter((item) => String(item.id) == String(id)))[0];
     } else {
-        return {};
+        return null;
     }
 }

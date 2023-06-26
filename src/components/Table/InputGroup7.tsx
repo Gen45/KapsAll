@@ -12,7 +12,7 @@ export function InputGroup7({
 }: { label: string, name: string, value: string, onChange: any, type?: string, decoration: any, className?: string, inputClassName?: string, decorationClassName?: string, disabled?: boolean }) {
     return (
         <div
-            className={`flex flex-row-reverse items-stretch w-full rounded-xl overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.03)] ${className}`}
+            className={`flex flex-row-reverse items-stretch w-full rounded-md overflow-hidden bg-white shadow-[0_4px_10px_rgba(0,0,0,0.03)] ${className}`}
         >
             <input
                 id={name}

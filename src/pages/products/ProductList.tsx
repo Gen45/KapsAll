@@ -6,7 +6,7 @@ import { Button2 } from "@components/Table/Button2";
 import { API_URL, MODALTYPES } from '@/utils/constants';
 import { Spinner } from '@material-tailwind/react';
 
-function ProductsSettings() {
+export default function ProductList() {
 
     const [modalContent, setModalContent] = useState({ title: 'title', body: 'body', type: 'PREVIEW | EDIT' });
 
@@ -86,5 +86,3 @@ function ProductsSettings() {
         </div>
     );
 }
-
-export { ProductsSettings };

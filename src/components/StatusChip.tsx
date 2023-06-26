@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-interface ChipProps {
+interface StatusChipProps {
     type: string;
     children: ReactNode;
 }
 
-export const Chip = ({ type }: ChipProps) => {
+export const StatusChip = ({ type }: StatusChipProps) => {
     let className = '';
     if (type == 'active') {
         className = 'bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold';
@@ -19,7 +19,7 @@ export const Chip = ({ type }: ChipProps) => {
     if (type == 'paused') {
         className = 'bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold';
     }
-    if (type == 'sent') {
+    if (type == 'completed') {
         className = 'bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold';
     }
     return (
