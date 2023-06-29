@@ -29,7 +29,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "src/contexts/GeneralContext.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "types": ["node"]
 }

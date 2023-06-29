@@ -9,6 +9,7 @@ export function InputGroup7({
     inputClassName = "",
     decorationClassName = "",
     disabled,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: { label: string, name: string, value: string, onChange: any, type?: string, decoration: any, className?: string, inputClassName?: string, decorationClassName?: string, disabled?: boolean }) {
     return (
         <div

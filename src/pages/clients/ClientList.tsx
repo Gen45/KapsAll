@@ -79,7 +79,7 @@ export default function ClientList() {
             Cell: ({ row }: { row: any; }) => {
                 return (
                     <div className="flex gap-2 items-center">
-                        <Button2 content={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
+                        <Button2 children={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
                     </div>
                 );
             },
@@ -95,7 +95,7 @@ export default function ClientList() {
     const columns = useMemo(getColumns, []);
 
     return (
-        <div className="flex flex-col grow overflow-auto p-8">
+        <div className="flex flex-col grow overflow-auto p-4">
             {clientsData
                 ?
                 <Table1 data={clientsData} columns={columns} />

@@ -3,17 +3,10 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import App from './App.tsx'
 import '@utils/index.css'
-// import { Campaigns } from '@/pages/campaigns/Campaigns.tsx';
-// import { ClientSettings } from '@/pages/clients/ClientList.tsx';
-// import { ProductsSettings } from '@/pages/products/ProductList.tsx';
-// import { TemplatesSettings } from '@/pages/templates/TemplateList.tsx';
-// import Campaign from './pages/campaigns/Campaign.tsx';
-// import Settings from '@pages/Settings.tsx';
-import ErrorPage from '@pages/error-page.tsx';
 
+import ErrorPage from '@pages/error-page.tsx';
 import CampaignMain from './pages/campaigns/CampaignMain.tsx';
 import ClientMain from './pages/clients/ClientMain.tsx';
-// import Campaign from './pages/campaigns/Campaign.tsx';
 import ProductMain from './pages/products/ProductMain.tsx';
 import TemplateMain from './pages/templates/TemplatesMain.tsx';
 

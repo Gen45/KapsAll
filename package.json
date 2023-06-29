@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "badbuild": "vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cleanrun": "rm -rf node_modules && rm -rf dist && rm -rf .vite && rm -rf .c && rm package-lock.json && npm i && npm run build"
   },
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
@@ -41,6 +42,7 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "netlify-cli": "^15.6.0",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",

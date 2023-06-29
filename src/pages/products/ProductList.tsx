@@ -24,7 +24,6 @@ export default function ProductList() {
             const res = await Promise.all([products]);
             const [productsRes] = res;
             setTableData(productsRes);
-            // console.log(productsRes);
         }
         go()
     }, []);
@@ -45,7 +44,7 @@ export default function ProductList() {
             Cell: ({ row }: { row: any; }) => {
                 return (
                     <div className="flex gap-2 items-center">
-                        <Button2 content={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
+                        <Button2 children={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
                     </div>
                 );
             },
@@ -60,7 +59,7 @@ export default function ProductList() {
     const columns = useMemo(getColumns, []);
 
     return (
-        <div className="flex flex-col grow overflow-auto p-8">
+        <div className="flex flex-col grow overflow-auto p-4">
             {tableData
                 ?
                 <Table1 data={tableData} columns={columns} />

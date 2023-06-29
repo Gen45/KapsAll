@@ -1,38 +1,12 @@
-import { BASEURL } from "./constants";
+import { Campaign, CampaignProcessed, Client, Product } from "./types";
 import { formatter } from "./utils";
 
-export const processProducts = (data: any) => {
-    let products = [] as any;
-    data.forEach((category: any) => {
-
-        const categoryName = category.name;
-        const categoryId = category.id;
-        const categoryUrl = BASEURL + category.url;
-
-        category.items.forEach((item: any) => {
-
-            let product = {} as any;
-
-            product.categoryName = categoryName;
-            product.categoryId = categoryId;
-            product.categoryUrl = categoryUrl;
-            product.name = item.name;
-            product.id = item.id;
-            product.model = item.model;
-            product.url = BASEURL + item.url;
-
-            products.push(product);
-        })
-    })
-    return products;
-}
-
-export const processCampaigns = (campaigns: any, products: any, clients: any) => {
-    return campaigns.map((campaign: any) => {
+export const processCampaigns = (campaigns: Array<Campaign>, products: Array<Product>, clients: Array<Client>): Array<CampaignProcessed> => {
+    return campaigns.map((campaign: Campaign): CampaignProcessed => {
         const product = findById(products, campaign.product);
         const client = findById(clients, campaign.client);
-        const clientName = client !== undefined ? `${client.first || ''} ${client.last || ''}` : undefined;
-        const productName = product !== undefined ? `${product.name}` : undefined;
+        const clientName = client !== undefined && client !== null ? `${client.first || ''} ${client.last || ''}` : '';
+        const productName = product !== undefined && product !== null ? `${product.name}` : '';
         return {
             id: campaign.id,
             code: campaign.code,
@@ -46,10 +20,11 @@ export const processCampaigns = (campaigns: any, products: any, clients: any) =>
     })
 }
 
-export const findById = (data: Array<any>, id: number) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const findById = (data: any, id: number): any => {
     if (data !== null && id !== null) {
-        // console.log(data);
-        return (data.filter((item) => String(item.id) == String(id)))[0];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return (data.filter((item: any) => String(item.id) == String(id)))[0];
     } else {
         return null;
     }

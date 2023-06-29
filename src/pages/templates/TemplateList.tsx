@@ -1,5 +1,5 @@
 import parse from "html-react-parser";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
 import { FaEdit, FaRegEye } from "react-icons/fa";
 import { API_URL, MODALTYPES } from "@/utils/constants";
@@ -18,7 +18,7 @@ export default function TemplatesList() {
 
     // Modal
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(open => {console.log('toggle modal'); return !open});
 
     const getTemplatesData = async () => {
         const templates = fetch(`${API_URL}templatex`).then(r => r.json());
@@ -81,8 +81,8 @@ export default function TemplatesList() {
             Cell: ({ row }: { row: any; }) => {
                 return (
                     <div className="flex gap-2 items-center">
-                        <Button2 content={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
-                        <Button2 content={<FaRegEye size="1rem" />} onClick={() => handleTogglePreviewModal(row.original)} />
+                        <Button2  onClick={() => handleToggleEditModal(row.original)} ><FaEdit size="1rem" /></Button2>
+                        <Button2  onClick={() => handleTogglePreviewModal(row.original)} ><FaRegEye size="1rem" /></Button2>
                     </div>
                 );
             },
@@ -116,7 +116,7 @@ export default function TemplatesList() {
     }
 
     return (
-        <div className="flex flex-col grow overflow-auto p-8">
+        <div className="flex flex-col grow overflow-auto p-4">
             {templatesData
                 ?
                 <Table1 data={templatesData} columns={getColumns()} />

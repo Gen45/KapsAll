@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Select, Option, Button, Input } from "@material-tailwind/react";
-import { TabButton } from "@components/TabButton";
 import { Template1 } from "@templates/Template1";
 import { API_URL } from "@/utils/constants";
 // import { processProducts } from "@/utils/processors";
