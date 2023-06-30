@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model campaign {
+  id          Int      @id @default(autoincrement())
+  code        String   @db.VarChar(128)
+  product     Int
+  client      Int
+  quote       Int
+  status      String   @db.VarChar(128)
+  start_date  DateTime @default(now()) @db.Timestamp(0)
+  meeting_url String   @db.VarChar(128)
+}
+
+model client {
+  id    Int    @id @default(autoincrement())
+  first String @db.VarChar(128)
+  last  String @db.VarChar(128)
+  email String @db.VarChar(128)
+}
+
+model product {
+  id           Int     @id @default(autoincrement())
+  name         String  @db.VarChar(128)
+  model        String  @db.VarChar(128)
+  category     Int
+  url          String? @db.VarChar(128)
+  is_available Boolean @default(true)
+}
+
+model product_cat {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(128)
+  url  String? @db.VarChar(128)
+}
+
+model template {
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(128)
+  description String @db.VarChar(128)
+  file        String @db.VarChar(128)
+}
+
+model ka_users {
+  id       Int      @id @default(autoincrement()) @db.UnsignedInt
+  first    String   @db.VarChar(30)
+  last     String   @db.VarChar(30)
+  email    String?  @db.VarChar(50)
+  reg_date DateTime @default(now()) @db.Timestamp(0)
+}

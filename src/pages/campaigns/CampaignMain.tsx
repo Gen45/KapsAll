@@ -20,10 +20,10 @@ export default function CampaignMain() {
 
     return (
         <div className="flex flex-col w-full">
-            <nav className="container bg-white  h-10  rounded-t-md overflow-hidden  mx-auto flex text-sm  text-white">
+            <nav className="container px-4 h-10 rounded-t-xl overflow-hidden mx-auto flex text-sm text-white">
                 <TabButton dark title={TABS.SENT} active={TABS.SENT == tab} onClick={() => setTab(TABS.SENT)} />
             </nav>
-            <div className="container bg-gray-100 rounded-b-md overflow-hidden  mx-auto flex text-sm">
+            <div className="container hiidden bg-gray-100 rounded-xl overflow-hidden mx-auto  text-sm">
                 {
                     tab == TABS.SENT &&
                     <CampaignList />

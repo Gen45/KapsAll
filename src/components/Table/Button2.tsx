@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export function Button2({ children, onClick, active, disabled }: { children: ReactNode, onClick: () => void, active?: boolean, disabled?: boolean }) {
   return (
     <button
-      className={`flex flex-col cursor-pointer items-center justify-center w-9 h-9 shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-sm font-normal transition-colors rounded-lg
+      className={`flex flex-col cursor-pointer items-center justify-center w-8 h-8  text-sm font-normal transition-colors rounded-md
         ${active
           ? "bg-red-600 text-white"
           : "bg-white text-red-600"

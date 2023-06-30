@@ -13,7 +13,7 @@ export default function ClientMain() {
 
     return (
         <div className="flex flex-col w-full">
-            <nav className="container bg-white  h-10  rounded-t-md overflow-hidden  mx-auto flex text-sm  text-white">
+            <nav className="container hidden px-4 h-10  rounded-t-xl overflow-hidden  mx-auto text-sm  text-white">
                 <TabButton dark title={TABS.LIST} active={TABS.LIST == tab} onClick={() => setTab(TABS.LIST)} />
                 {/* <TabButton dark title={TABS.NEW} active={TABS.NEW == tab} onClick={() => setTab(TABS.NEW)} /> */}
             </nav>

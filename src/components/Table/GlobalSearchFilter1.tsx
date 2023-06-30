@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { InputGroup7 } from "./InputGroup7";
+import { TableSearch } from "./TableSearch";
 
 export function GlobalSearchFilter1({
     globalFilter,
@@ -7,7 +7,7 @@ export function GlobalSearchFilter1({
     className = "",
 }: { globalFilter: string, setGlobalFilter: (value: string | ((value: string) => string)) => void, className?: string }) {
     return (
-        <InputGroup7
+        <TableSearch
             name="search"
             value={globalFilter || ""}
             //// eslint-disable-next-line @typescript-eslint/no-explicit-any

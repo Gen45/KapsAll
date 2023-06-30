@@ -9,10 +9,8 @@ export const CampaignModal = ({ modalContent, singleCampaignData, setSingleCampa
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async () => {
-        console.log(singleCampaignData);
-
         if (modalContent.data === null || singleCampaignData === null) {
-            return null;
+            return;
         }
 
         try {
@@ -27,23 +25,19 @@ export const CampaignModal = ({ modalContent, singleCampaignData, setSingleCampa
             if (response.ok) {
                 setErrorMessage('');
                 handleOpen();
-                return (true);
-
             } else {
                 throw new Error('Error saving client data...');
             }
         } catch (error) {
-            console.log(error);
             setErrorMessage('Error saving client data...');
             handleOpen();
         }
     };
 
 
-    return <Dialog open={open} size="xl" handler={handleOpen}>
+    return <Dialog open={open} size="md" handler={handleOpen}>
         <DialogHeader>{modalContent.title}</DialogHeader>
         <DialogBody divider>
-            {modalContent.body}
 
             {modalContent.type == MODALTYPES.EDIT && singleCampaignData !== null &&
                 <div className="p-8">

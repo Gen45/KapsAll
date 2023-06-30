@@ -27,3 +27,4 @@ dist-ssr
 package-lock.json
 API/.vscode/ftp-sync.json
 API/beta/.env
+.env

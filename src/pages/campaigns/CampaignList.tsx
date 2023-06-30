@@ -32,7 +32,7 @@ export default function CampaignList() {
         };
 
         fetchData();
-    }, [singleCampaignData]);
+    }, [singleCampaignData, open]);
 
     const getColumns = () => [
         {
@@ -120,7 +120,7 @@ export default function CampaignList() {
     }
 
     return (
-        <div className="flex flex-col grow overflow-auto p-4">
+        <div className="flex flex-col grow overflow-auto pt-4">
             {campaignsData
                 ?
                 <Table1 data={campaignsData} columns={getColumns()} />

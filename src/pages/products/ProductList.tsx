@@ -59,7 +59,7 @@ export default function ProductList() {
     const columns = useMemo(getColumns, []);
 
     return (
-        <div className="flex flex-col grow overflow-auto p-4">
+        <div className="flex flex-col grow overflow-auto pt-4">
             {tableData
                 ?
                 <Table1 data={tableData} columns={columns} />

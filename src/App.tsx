@@ -48,17 +48,17 @@ function App() {
             </div>
           </div>
         </header>
-        <div className="flex bg-gray-100 dark:bg-gray-900 py-5 pb-16 -mb-12 items-center">
+        <div className="flex bg-gray-100 dark:bg-gray-900 py-5 pt-16 pb-16 -mb-12 items-center">
           <div className="container px-10 mx-auto flex justify-between items-center">
-            <h2 className="text-3xl font-semibold dark:text-gray-200">
-              {page[0].toUpperCase() + page.substring(1)}
+            <h2 className="text-2xl font-semiBold first-letter:uppercase  dark:text-gray-200">
+              {page}
             </h2>
             <Button className="rounded-full shadow-none" ripple color="red" onClick={() => { handleNewCampaign() }} >Create Campaign</Button>
           </div>
         </div>
-        <div className="flex flex-col grow bg-gradient-to-b from-gray-200 to-gray-200 dark:from-gray-800 dark:to-slate-900 mt-12 ">
-          <main className="flex flex-col container px-10 pb-20 mx-auto -mt-10">
-            <Outlet context={{ someData: 'hello world' }} />
+        <div className="flex flex-col grow bg-gray-100 dark:from-gray-800 dark:to-slate-900  ">
+          <main className="flex flex-col container px-10 pb-20 mx-auto ">
+            <Outlet />
           </main>
         </div>
       </div>      

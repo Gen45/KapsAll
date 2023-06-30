@@ -95,7 +95,7 @@ export default function ClientList() {
     const columns = useMemo(getColumns, []);
 
     return (
-        <div className="flex flex-col grow overflow-auto p-4">
+        <div className="flex flex-col grow overflow-auto pt-4">
             {clientsData
                 ?
                 <Table1 data={clientsData} columns={columns} />

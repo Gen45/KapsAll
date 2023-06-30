@@ -116,7 +116,7 @@ export default function TemplatesList() {
     }
 
     return (
-        <div className="flex flex-col grow overflow-auto p-4">
+        <div className="flex flex-col grow overflow-auto pt-4">
             {templatesData
                 ?
                 <Table1 data={templatesData} columns={getColumns()} />

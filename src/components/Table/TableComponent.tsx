@@ -8,7 +8,7 @@ export function TableComponent({
     prepareRow,
 }: { getTableProps: any, headerGroups: any, getTableBodyProps: any, rows: any, prepareRow: any }) {
     return (
-        <div className="w-full min-w-[30rem] p-4 bg-white rounded-md shadow-[0_4px_10px_rgba(0,0,0,0.03)]">
+        <div className="w-full min-w-[30rem] p-4 bg-white rounded-md ">
             <table {...getTableProps()} className="w-full">
                 <thead>
                     {headerGroups.map((headerGroup: any) => (
