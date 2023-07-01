@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Table1 } from "@components/Table/Table1";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaEye } from "react-icons/fa";
 import { MODALTYPES } from '@/utils/constants';
 import { Spinner } from '@material-tailwind/react';
 import { Button2 } from "@components/Table/Button2";
@@ -35,6 +35,12 @@ export default function CampaignList() {
     }, [singleCampaignData, open]);
 
     const getColumns = () => [
+        {
+            Header: "",
+            accessor: "id",
+            unsortable: true,
+            width: 50,
+        },
         {
             Header: "Campaign Code",
             accessor: "code",
@@ -72,10 +78,6 @@ export default function CampaignList() {
             },
         },
         {
-            Header: "Meeting URL",
-            accessor: "meeting_url",
-        },
-        {
             Header: "Quote",
             accessor: "quote",
         },
@@ -86,7 +88,6 @@ export default function CampaignList() {
                 return (
                     <>
                         <div className="flex gap-2 items-center">
-
                             <StatusChip type={row.original.status.toLowerCase()}>{row.original.status}</StatusChip>
                         </div>
                     </>
@@ -94,13 +95,13 @@ export default function CampaignList() {
             },
         },
         {
-            Header: "Actions",
+            Header: "",
             accessor: "actions",
             unsortable: true,
             Cell: ({ row }: { row: any; }) => {
                 return (
-                    <div className="flex gap-2 items-center">
-                        <Button2 children={<FaEdit size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
+                    <div className="flex justify-end gap-2 items-center">
+                        <Button2 children={<FaEye size="1rem" />} onClick={() => handleToggleEditModal(row.original)} />
                     </div>
                 );
             },
